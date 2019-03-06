@@ -7,5 +7,9 @@
     <string name="lock_icon">lock icon</string>
     <string name="edittext_hint_password">Password</string>
     <string name="sign_in">SIGN IN</string>
+    <string name="Home">Home</string>
+    <string name="notification">Notification</string>
+    <string name="Settings">Settings</string>
+    <string name="About">About</string>
 
 </resources>
