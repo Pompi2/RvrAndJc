@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">RvrAndJc</string>
+
+    <!--Login-->
+    <string name="user_name">username</string>
+    <string name="person_icon">person icon</string>
+    <string name="lock_icon">lock icon</string>
+    <string name="edittext_hint_password">Password</string>
+    <string name="sign_in">SIGN IN</string>
+
 </resources>
