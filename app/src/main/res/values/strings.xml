@@ -2,7 +2,7 @@
     <string name="app_name">RvrAndJc</string>
 
     <!--Login-->
-    <string name="user_name"><font size="16">username</font></string>
+    <string name="user_name"><font size="16">Username</font></string>
     <string name="person_icon">person icon</string>
     <string name="lock_icon">lock icon</string>
     <string name="edittext_hint_password"><font size="16">Password</font></string>
@@ -11,5 +11,7 @@
     <string name="notification">Notification</string>
     <string name="Settings">Settings</string>
     <string name="About">About</string>
+    <string name="Student_login">Student Login</string>
+    <string name="description_logo">rvrlogo</string>
 
 </resources>

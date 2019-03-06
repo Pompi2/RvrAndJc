@@ -4,23 +4,35 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
-    android:background="@android:color/white">
+    android:background="@android:color/white"
+    tools:context=".MainActivity">
 
     <ImageView
         android:id="@+id/mainlogo"
         android:layout_width="130dp"
         android:layout_height="130dp"
-        android:layout_margin="15dp"
         android:layout_centerHorizontal="true"
+        android:layout_margin="15dp"
         android:alpha="0.9"
+        android:contentDescription="@string/description_logo"
         android:src="@drawable/logo"/>
+
+    <TextView
+        android:id="@+id/stdlogin_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/mainlogo"
+        android:text="@string/Student_login"
+        android:layout_marginBottom="15dp"
+        android:alpha="0.9"
+        android:textSize="20sp"
+        android:layout_centerHorizontal="true"/>
 
     <androidx.cardview.widget.CardView
         android:id="@+id/maincard"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/mainlogo"
+        android:layout_below="@id/stdlogin_label"
         android:layout_marginStart="20dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="20dp"
