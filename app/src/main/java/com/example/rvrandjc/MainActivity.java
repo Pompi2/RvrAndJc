@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
         bottomNavigation.addItem(item4);
 
         // Set background color
-        bottomNavigation.setDefaultBackgroundColor(Color.parseColor("#FEFEFE"));
+        bottomNavigation.setDefaultBackgroundColor(Color.parseColor("#F2F2F2"));
 
         bottomNavigation.setNotification("1",1);
 

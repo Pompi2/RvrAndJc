@@ -144,11 +144,17 @@
             android:layout_below="@id/point1"
             android:text="@string/point2"/>
         <TextView
-            android:id="@+id/poit3"
+            android:id="@+id/point3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/point2"
             android:text="@string/point3"/>
+        <TextView
+            android:id="@+id/point4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/point3"
+            android:text="@string/point4"/>
 
     </RelativeLayout>
     <com.aurelhubert.ahbottomnavigation.AHBottomNavigation

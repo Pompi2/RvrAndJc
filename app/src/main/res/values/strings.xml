@@ -14,8 +14,9 @@
     <string name="Student_login">Student Login</string>
     <string name="description_logo">rvrlogo</string>
     <string name="guide_label">Guide:</string>
-    <string name="point1">○ Login to check academic details</string>
-    <string name="point2">○ You need not login to receive notifications</string>
-    <string name="point3">○ Change notification preferences in settings</string>
+    <string name="point1">⦿ Login to check academic details</string>
+    <string name="point2">⦿ Attendance is updated everyday at 3PM</string>
+    <string name="point3">⦿ You need not login to receive notifications</string>
+    <string name="point4">⦿ Change notification preferences in settings</string>
 
 </resources>
