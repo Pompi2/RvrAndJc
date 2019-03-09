@@ -8,12 +8,14 @@ import android.os.Bundle;
 
 import com.aurelhubert.ahbottomnavigation.AHBottomNavigation;
 import com.aurelhubert.ahbottomnavigation.AHBottomNavigationItem;
+import com.google.firebase.messaging.FirebaseMessaging;
 import com.hashik.rvrandjc.adapters.MainFragmentAdapter;
 import com.hashik.rvrandjc.R;
 
 public class MainActivity extends AppCompatActivity {
     private AHBottomNavigation bottomNavigation;
     private ViewPager mainViewPager;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
         //Assignments
         bottomNavigation = (AHBottomNavigation) findViewById(R.id.bottom_navigation);
         mainViewPager = (ViewPager) findViewById(R.id.main_viewpager);
+        FirebaseMessaging.getInstance().subscribeToTopic("MCA-II");//TODO: Remove this and place it appropriately
 
         //Initializations
         initializeBottomNav();

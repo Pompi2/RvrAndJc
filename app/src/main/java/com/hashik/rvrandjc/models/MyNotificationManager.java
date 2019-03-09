@@ -1,9 +1,11 @@
 package com.hashik.rvrandjc.models;
 
+import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 
 import com.hashik.rvrandjc.R;
 import com.hashik.rvrandjc.views.MainActivity;
@@ -27,6 +29,9 @@ public class MyNotificationManager {
             mInstance = new MyNotificationManager(context);
         }
         return mInstance;
+    }
+    public void assignChannel(){
+
     }
 
     public void displayNotification(String title, String body) {
