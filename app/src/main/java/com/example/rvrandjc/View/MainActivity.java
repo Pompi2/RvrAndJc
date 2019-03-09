@@ -1,26 +1,52 @@
 package com.example.rvrandjc.View;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.viewpager.widget.ViewPager;
 
 import android.graphics.Color;
 import android.os.Bundle;
 
 import com.aurelhubert.ahbottomnavigation.AHBottomNavigation;
 import com.aurelhubert.ahbottomnavigation.AHBottomNavigationItem;
+import com.example.rvrandjc.Adapters.MainFragmentAdapter;
 import com.example.rvrandjc.R;
+import com.google.android.material.tabs.TabLayout;
 
 public class MainActivity extends AppCompatActivity {
     private AHBottomNavigation bottomNavigation;
+    private ViewPager mainViewPager;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //Assignments
         bottomNavigation = (AHBottomNavigation) findViewById(R.id.bottom_navigation);
+        mainViewPager = (ViewPager) findViewById(R.id.main_viewpager);
 
+        //Initializations
         initializeBottomNav();
 
+        //Adapters
+        mainViewPager.setAdapter(new MainFragmentAdapter(getSupportFragmentManager()));
 
+        //Listeners
+        mainViewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+            }
+            @Override
+            public void onPageSelected(int position) {
+                /*This method will be invoked when the current page is scrolled,
+                either as part of a programmatically initiated smooth scroll or a user initiated touch scroll*/
+                bottomNavigation.setCurrentItem(position); //Changing the tab to the state(position)
+            }
+            @Override
+            public void onPageScrollStateChanged(int state) {
+            }
+        });
     }
 
     private void initializeBottomNav() {
@@ -39,6 +65,13 @@ public class MainActivity extends AppCompatActivity {
         // Set background color
         bottomNavigation.setDefaultBackgroundColor(Color.parseColor("#F2F2F2"));
 
-        bottomNavigation.setNotification("1",1);
+        bottomNavigation.setOnTabSelectedListener(new AHBottomNavigation.OnTabSelectedListener() {
+            @Override
+            public boolean onTabSelected(int position, boolean wasSelected) {
+                mainViewPager.setCurrentItem(position); //OnClick of tab setting the current view pager to the position
+                return true;
+            }
+        });
+        //bottomNavigation.setNotification("1",1);
     }
 }
