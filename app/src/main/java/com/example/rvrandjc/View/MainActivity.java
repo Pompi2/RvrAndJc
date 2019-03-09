@@ -1,4 +1,4 @@
-package com.example.rvrandjc;
+package com.example.rvrandjc.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,15 +7,23 @@ import android.os.Bundle;
 
 import com.aurelhubert.ahbottomnavigation.AHBottomNavigation;
 import com.aurelhubert.ahbottomnavigation.AHBottomNavigationItem;
+import com.example.rvrandjc.R;
 
 public class MainActivity extends AppCompatActivity {
-
+    private AHBottomNavigation bottomNavigation;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        AHBottomNavigation bottomNavigation = (AHBottomNavigation) findViewById(R.id.bottom_navigation);
+        bottomNavigation = (AHBottomNavigation) findViewById(R.id.bottom_navigation);
+
+        initializeBottomNav();
+
+
+    }
+
+    private void initializeBottomNav() {
 
         // Create items
         AHBottomNavigationItem item1 = new AHBottomNavigationItem(R.string.Home, R.drawable.ic_home, R.color.colorAccent);
@@ -32,6 +40,5 @@ public class MainActivity extends AppCompatActivity {
         bottomNavigation.setDefaultBackgroundColor(Color.parseColor("#F2F2F2"));
 
         bottomNavigation.setNotification("1",1);
-
     }
 }
