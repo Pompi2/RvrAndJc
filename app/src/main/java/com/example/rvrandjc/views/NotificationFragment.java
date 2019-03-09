@@ -1,4 +1,4 @@
-package com.example.rvrandjc.View;
+package com.example.rvrandjc.views;
 
 import androidx.lifecycle.ViewModelProviders;
 
@@ -13,7 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.rvrandjc.R;
-import com.example.rvrandjc.ViewModel.NotificationViewModel;
+import com.example.rvrandjc.viewmodels.NotificationViewModel;
 
 public class NotificationFragment extends Fragment {
 

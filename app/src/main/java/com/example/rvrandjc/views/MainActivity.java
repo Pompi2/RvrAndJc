@@ -1,4 +1,4 @@
-package com.example.rvrandjc.View;
+package com.example.rvrandjc.views;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
@@ -8,9 +8,8 @@ import android.os.Bundle;
 
 import com.aurelhubert.ahbottomnavigation.AHBottomNavigation;
 import com.aurelhubert.ahbottomnavigation.AHBottomNavigationItem;
-import com.example.rvrandjc.Adapters.MainFragmentAdapter;
+import com.example.rvrandjc.adapters.MainFragmentAdapter;
 import com.example.rvrandjc.R;
-import com.google.android.material.tabs.TabLayout;
 
 public class MainActivity extends AppCompatActivity {
     private AHBottomNavigation bottomNavigation;
