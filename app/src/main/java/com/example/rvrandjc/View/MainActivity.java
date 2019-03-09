@@ -63,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
         bottomNavigation.addItem(item4);
 
         // Set background color
-        bottomNavigation.setDefaultBackgroundColor(Color.parseColor("#F2F2F2"));
+        bottomNavigation.setDefaultBackgroundColor(Color.parseColor("#F5F5F5"));
 
         bottomNavigation.setOnTabSelectedListener(new AHBottomNavigation.OnTabSelectedListener() {
             @Override
