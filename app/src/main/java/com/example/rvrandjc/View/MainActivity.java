@@ -53,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
 
         // Create items
         AHBottomNavigationItem item1 = new AHBottomNavigationItem(R.string.Home, R.drawable.ic_home, R.color.colorAccent);
-        AHBottomNavigationItem item2 = new AHBottomNavigationItem(R.string.notification, R.drawable.ic_notifications, R.color.colorAccent);
+        AHBottomNavigationItem item2 = new AHBottomNavigationItem(R.string.notification, R.drawable.ic_notification, R.color.colorAccent);
         AHBottomNavigationItem item3 = new AHBottomNavigationItem(R.string.Settings, R.drawable.ic_settings, R.color.colorAccent);
         AHBottomNavigationItem item4 = new AHBottomNavigationItem(R.string.About, R.drawable.ic_about, R.color.colorAccent);
         // Add items
@@ -72,6 +72,8 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             }
         });
-        //bottomNavigation.setNotification("1",1);
+
+        //Settings a notification
+        bottomNavigation.setNotification("1",1);
     }
 }
