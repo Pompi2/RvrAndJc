@@ -19,4 +19,7 @@
     <string name="point3">⦿ You need not login to receive notifications</string>
     <string name="point4">⦿ Change notification preferences in settings</string>
 
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
 </resources>
