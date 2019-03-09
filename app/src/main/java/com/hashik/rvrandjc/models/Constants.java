@@ -1,4 +1,4 @@
-package com.example.rvrandjc.models;
+package com.hashik.rvrandjc.models;
 
 public class Constants {
     public static final String[] NOT_CATEGORIES = {"I","II","III","IV","MCA-I","MCA-II","MBA","All","Faculty"};

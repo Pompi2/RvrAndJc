@@ -1,9 +1,9 @@
-package com.example.rvrandjc.adapters;
+package com.hashik.rvrandjc.adapters;
 
-import com.example.rvrandjc.views.AboutFragment;
-import com.example.rvrandjc.views.NotificationFragment;
-import com.example.rvrandjc.views.SettingsFragment;
-import com.example.rvrandjc.views.SignInFragment;
+import com.hashik.rvrandjc.views.AboutFragment;
+import com.hashik.rvrandjc.views.NotificationFragment;
+import com.hashik.rvrandjc.views.SettingsFragment;
+import com.hashik.rvrandjc.views.SignInFragment;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;

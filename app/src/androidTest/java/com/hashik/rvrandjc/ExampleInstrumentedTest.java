@@ -1,4 +1,4 @@
-package com.example.rvrandjc;
+package com.hashik.rvrandjc;
 
 import android.content.Context;
 import androidx.test.InstrumentationRegistry;
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("com.example.rvrandjc", appContext.getPackageName());
+        assertEquals("com.example.com.hashik.rvrandjc", appContext.getPackageName());
     }
 }

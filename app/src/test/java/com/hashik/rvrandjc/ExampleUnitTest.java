@@ -1,4 +1,4 @@
-package com.example.rvrandjc;
+package com.hashik.rvrandjc;
 
 import org.junit.Test;
 

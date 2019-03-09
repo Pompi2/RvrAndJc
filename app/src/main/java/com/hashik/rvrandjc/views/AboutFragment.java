@@ -1,4 +1,4 @@
-package com.example.rvrandjc.views;
+package com.hashik.rvrandjc.views;
 
 import android.os.Bundle;
 
@@ -8,7 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.rvrandjc.R;
+import com.hashik.rvrandjc.R;
 
 /**
  * A simple {@link Fragment} subclass.

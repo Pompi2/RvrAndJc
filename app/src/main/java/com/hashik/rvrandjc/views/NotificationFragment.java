@@ -1,4 +1,4 @@
-package com.example.rvrandjc.views;
+package com.hashik.rvrandjc.views;
 
 import androidx.lifecycle.ViewModelProviders;
 
@@ -12,8 +12,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.rvrandjc.R;
-import com.example.rvrandjc.viewmodels.NotificationViewModel;
+import com.hashik.rvrandjc.R;
+import com.hashik.rvrandjc.viewmodels.NotificationViewModel;
 
 public class NotificationFragment extends Fragment {
 

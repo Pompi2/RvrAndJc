@@ -1,4 +1,4 @@
-package com.example.rvrandjc.views;
+package com.hashik.rvrandjc.views;
 
 import android.os.Bundle;
 
@@ -8,16 +8,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.rvrandjc.R;
-
+import com.hashik.rvrandjc.R;
 
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
  */
-public class SignInFragment extends Fragment {
+public class SettingsFragment extends Fragment {
 
-    public SignInFragment() {
+    public SettingsFragment() {
         // Required empty public constructor
     }
 
@@ -25,6 +24,6 @@ public class SignInFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_sign_in, container, false);
+        return inflater.inflate(R.layout.fragment_settings, container, false);
     }
 }

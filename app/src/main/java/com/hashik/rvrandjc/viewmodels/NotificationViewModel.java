@@ -1,4 +1,4 @@
-package com.example.rvrandjc.viewmodels;
+package com.hashik.rvrandjc.viewmodels;
 
 import androidx.lifecycle.ViewModel;
 
