@@ -8,6 +8,7 @@ import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.util.Log;
 import android.widget.Toast;
 
 import com.aurelhubert.ahbottomnavigation.AHBottomNavigation;
@@ -24,6 +25,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class MainActivity extends AppCompatActivity {
+    private static final String TAG = "MainActivity";
     private AHBottomNavigation bottomNavigation;
     private ViewPager mainViewPager;
 
@@ -78,6 +80,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void setNotificationPreferences(SharedPreferences sp) {
+        Log.d(TAG, "setNotificationPreferences: Changing Notification preferences");
         final String category = sp.getString("not_category",null);
         if(category == null){
             sp.edit().putString("not_category","All").apply();
