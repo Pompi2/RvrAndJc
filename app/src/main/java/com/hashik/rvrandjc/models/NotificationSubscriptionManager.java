@@ -14,7 +14,7 @@ public class NotificationSubscriptionManager {
 
     public void subToAllChannels(){ //Subscribe to all channels
         for (String notCategory : Constants.NOT_CATEGORIES) {
-            FirebaseMessaging.getInstance().subscribeToTopic(notCategory);
+            unSubTOChannel(notCategory);
         }
     }
 
@@ -27,7 +27,7 @@ public class NotificationSubscriptionManager {
     public void subToChannel(final String channel){
         unSubToAllChannels();//Clear all channels subscription
         FirebaseMessaging.getInstance().subscribeToTopic(channel); //Assign new channel subscription
-        FirebaseMessaging.getInstance().subscribeToTopic(Constants.NOT_CATEGORIES[8]); // Subscribing to all
+        FirebaseMessaging.getInstance().subscribeToTopic(Constants.NOT_CATEGORIES[8]); // Subscribing to all by default
     }
 
     public void unSubTOChannel(final String channel){

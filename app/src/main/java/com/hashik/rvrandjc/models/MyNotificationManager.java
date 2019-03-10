@@ -30,11 +30,8 @@ public class MyNotificationManager {
         }
         return mInstance;
     }
-    public void assignChannel(){
 
-    }
-
-    public void displayNotification(String title, String body) {
+    public void displayNotification(String title, String body,int id) {
 
         NotificationCompat.Builder mBuilder =
                 new NotificationCompat.Builder(mCtx, Constants.CHANNEL_ID)
@@ -76,7 +73,7 @@ public class MyNotificationManager {
          * because using this id we can modify it later
          * */
         if (mNotifyMgr != null) {
-            mNotifyMgr.notify(1, mBuilder.build());
+            mNotifyMgr.notify(id, mBuilder.build());
         }
     }
 

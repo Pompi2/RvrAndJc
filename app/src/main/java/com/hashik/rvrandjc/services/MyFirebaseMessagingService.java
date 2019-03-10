@@ -3,6 +3,7 @@ package com.hashik.rvrandjc.services;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.Service;
+import android.content.Intent;
 import android.graphics.Color;
 import android.util.Log;
 
@@ -37,10 +38,17 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService{
         if(remoteMessage.getData().size() > 0){
             String title = remoteMessage.getData().get("title");
             String body = remoteMessage.getData().get("body");
+            int id;
+            try{
+                id = Integer.parseInt(remoteMessage.getData().get("id"));
+            }catch (Exception e){
+                Log.e(TAG, "onMessageReceived: ID is missing");
+                id = 555; //Default ID
+            }
 
             if (title != null && body != null) {
                 MyNotificationManager.getInstance(getApplicationContext()).
-                        displayNotification(title, body);
+                        displayNotification(title, body,id);
             }
         }
     }
