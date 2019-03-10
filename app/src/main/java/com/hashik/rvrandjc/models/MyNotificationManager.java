@@ -1,11 +1,9 @@
 package com.hashik.rvrandjc.models;
 
-import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Color;
 
 import com.hashik.rvrandjc.R;
 import com.hashik.rvrandjc.views.MainActivity;
@@ -35,7 +33,7 @@ public class MyNotificationManager {
 
         NotificationCompat.Builder mBuilder =
                 new NotificationCompat.Builder(mCtx, Constants.CHANNEL_ID)
-                        .setSmallIcon(R.drawable.ic_launcher_background)
+                        .setSmallIcon(R.drawable.ic_applogov)
                         .setContentTitle(title)
                         .setContentText(body);
 
