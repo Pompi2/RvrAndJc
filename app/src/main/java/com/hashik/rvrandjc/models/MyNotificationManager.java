@@ -61,6 +61,7 @@ public class MyNotificationManager {
          * */
 
         mBuilder.setContentIntent(pendingIntent);
+        mBuilder.setAutoCancel(true);
 
         NotificationManager mNotifyMgr =
                 (NotificationManager) mCtx.getSystemService(NOTIFICATION_SERVICE);
