@@ -3,14 +3,25 @@ package com.hashik.rvrandjc.views;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
+import android.app.Notification;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
+import android.widget.Toast;
 
 import com.aurelhubert.ahbottomnavigation.AHBottomNavigation;
 import com.aurelhubert.ahbottomnavigation.AHBottomNavigationItem;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.messaging.FirebaseMessaging;
 import com.hashik.rvrandjc.adapters.MainFragmentAdapter;
 import com.hashik.rvrandjc.R;
+import com.hashik.rvrandjc.models.Constants;
+import com.hashik.rvrandjc.models.NotificationSubscriptionManager;
+
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 public class MainActivity extends AppCompatActivity {
     private AHBottomNavigation bottomNavigation;
@@ -48,6 +59,36 @@ public class MainActivity extends AppCompatActivity {
             public void onPageScrollStateChanged(int state) {
             }
         });
+
+        //Getting shard preferences of notification to assign the channel every time the apps starts to provide consistency, reliability of notification
+        SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
+        if(sp.getBoolean("firstrun",true)){
+            //Doing first run stuff
+            SharedPreferences.Editor editor = sp.edit();
+            editor.putBoolean("on_off_not",true);
+            editor.putBoolean("firstrun",false); //Setting first time running flag to false
+            editor.apply();
+            setNotificationPreferences(sp);
+        }
+        if(sp.getBoolean("on_off_not",false)){
+            setNotificationPreferences(sp);
+        }else{
+            Toast.makeText(this, "App notifications are turned off", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    private void setNotificationPreferences(SharedPreferences sp) {
+        final String category = sp.getString("not_category",null);
+        if(category == null){
+            sp.edit().putString("not_category","All").apply();
+            NotificationSubscriptionManager.getInstance().subToAllChannels();
+        }else{
+            String[] list  = getResources().getStringArray(R.array.not_pref);
+            ArrayList<String> aList = new ArrayList<String>(Arrays.asList(list));
+            int index = aList.indexOf(category);
+            final String const_category = Constants.NOT_CATEGORIES[index];
+            NotificationSubscriptionManager.getInstance().subToChannel(const_category);
+        }
     }
 
     private void initializeBottomNav() {
