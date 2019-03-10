@@ -47,10 +47,12 @@ public class SettingsFragment extends PreferenceFragmentCompat {
                 if(switched){
                     myManager.unSubToAllChannels();
                     list.setEnabled(false); //Disable notification channel selection
+                    Toast.makeText(getContext(), "Notifications disabled", Toast.LENGTH_SHORT).show();
                 }else{
                     myManager.subToAllChannels();
                     list.setEnabled(true); //Enable notification channel selection
                     list.setValueIndex(8); //Set notification selection to all
+                    Toast.makeText(getContext(), "Setting notification preference to all", Toast.LENGTH_SHORT).show();
                 }
                 return true;
             }
