@@ -26,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
         bottomNavigation = (AHBottomNavigation) findViewById(R.id.bottom_navigation);
         mainViewPager = (ViewPager) findViewById(R.id.main_viewpager);
         FirebaseMessaging.getInstance().subscribeToTopic("MCA-II");//TODO: Remove this and place it appropriately
+        FirebaseMessaging.getInstance().subscribeToTopic("MCA-I");
 
         //Initializations
         initializeBottomNav();
