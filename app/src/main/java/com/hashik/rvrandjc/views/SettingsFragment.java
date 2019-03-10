@@ -7,9 +7,11 @@ import androidx.preference.ListPreference;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceFragmentCompat;
 import androidx.preference.PreferenceScreen;
+import androidx.preference.SwitchPreference;
 
 import com.hashik.rvrandjc.R;
 import com.hashik.rvrandjc.models.Constants;
+import com.hashik.rvrandjc.models.MyNotificationManager;
 import com.hashik.rvrandjc.models.NotificationSubscriptionManager;
 
 public class SettingsFragment extends PreferenceFragmentCompat {
@@ -31,16 +33,34 @@ public class SettingsFragment extends PreferenceFragmentCompat {
             for (int i = 0; i < count; i++)
                 preferenceScreen.getPreference(i).setIconSpaceReserved(false);
         }
+        final SwitchPreference notSwitch = (SwitchPreference) findPreference("on_off_not");
+        notSwitch.setChecked(true);//Turned on initially
 
         final ListPreference list = (ListPreference) findPreference("not_category");
+
+        //Getting the sub manager
+        final NotificationSubscriptionManager myManager = NotificationSubscriptionManager.getInstance();
+        notSwitch.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
+            public boolean onPreferenceChange(Preference preference, Object newValue) {
+                boolean switched = ((SwitchPreference) preference)
+                        .isChecked();
+                if(switched){
+                    myManager.unSubToAllChannels();
+                    list.setEnabled(false); //Disable notification channel selection
+                }else{
+                    myManager.subToAllChannels();
+                    list.setEnabled(true); //Enable notification channel selection
+                    list.setValueIndex(8); //Set notification selection to all
+                }
+                return true;
+            }
+        });
+
         list.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
             public boolean onPreferenceChange(Preference preference, Object newValue) {
                 int index = list.findIndexOfValue(newValue.toString());
 
                 if (index != -1) {
-                    //Getting the sub manager
-                    NotificationSubscriptionManager myManager = NotificationSubscriptionManager.getInstance();
-
                     switch (index){
                         case 0: myManager.subToChannel(Constants.NOT_CATEGORIES[index]);
                             break;
