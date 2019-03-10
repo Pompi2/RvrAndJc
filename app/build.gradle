@@ -34,5 +34,8 @@ dependencies {
     //Firebase
     implementation 'com.google.firebase:firebase-core:16.0.7'
     implementation 'com.google.firebase:firebase-messaging:17.4.0'
+
+    //Preferences
+    implementation "androidx.preference:preference:1.1.0-alpha03"
 }
 apply plugin: 'com.google.gms.google-services'

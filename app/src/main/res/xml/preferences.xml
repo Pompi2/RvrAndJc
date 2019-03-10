@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory
+        android:title="Notification" />
+
+    <MultiSelectListPreference
+        android:defaultValue="@array/not_pref"
+        android:entries="@array/not_pref"
+        android:entryValues="@array/not_pref"
+        android:key="multi_select_list_preference_1"
+        android:title="Notification preferences"
+        android:summary="Choose the channel you wish to receive notifications from"/>
+    
+    <SwitchPreference
+        android:title="App Notifications"
+        android:key="on_off_not"
+        android:summary="Turn on/off app notifications entirely"/>
+</PreferenceScreen>
