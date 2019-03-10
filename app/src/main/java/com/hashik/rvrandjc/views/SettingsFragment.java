@@ -1,30 +1,21 @@
 package com.hashik.rvrandjc.views;
 
-import android.annotation.SuppressLint;
-import android.os.Build;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.ListView;
+import android.widget.Toast;
 
-import androidx.fragment.app.Fragment;
+import androidx.preference.ListPreference;
 import androidx.preference.Preference;
-import androidx.preference.PreferenceCategory;
-import androidx.preference.PreferenceFragment;
 import androidx.preference.PreferenceFragmentCompat;
-import androidx.preference.PreferenceGroupAdapter;
 import androidx.preference.PreferenceScreen;
 
 import com.hashik.rvrandjc.R;
+import com.hashik.rvrandjc.models.Constants;
+import com.hashik.rvrandjc.models.NotificationSubscriptionManager;
 
-/**
- * A simple {@link Fragment} subclass.
- * Activities that contain this fragment must implement the
- */
 public class SettingsFragment extends PreferenceFragmentCompat {
 
-    public SettingsFragment() {
-        // Required empty public constructor
-    }
+
+    private static final String TAG = "SettingsFragment";
 
     @Override
     public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
@@ -40,5 +31,41 @@ public class SettingsFragment extends PreferenceFragmentCompat {
             for (int i = 0; i < count; i++)
                 preferenceScreen.getPreference(i).setIconSpaceReserved(false);
         }
+
+        final ListPreference list = (ListPreference) findPreference("not_category");
+        list.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
+            public boolean onPreferenceChange(Preference preference, Object newValue) {
+                int index = list.findIndexOfValue(newValue.toString());
+
+                if (index != -1) {
+                    //Getting the sub manager
+                    NotificationSubscriptionManager myManager = NotificationSubscriptionManager.getInstance();
+
+                    switch (index){
+                        case 0: myManager.subToChannel(Constants.NOT_CATEGORIES[index]);
+                            break;
+                        case 1: myManager.subToChannel(Constants.NOT_CATEGORIES[index]);
+                            break;
+                        case 2: myManager.subToChannel(Constants.NOT_CATEGORIES[index]);
+                            break;
+                        case 3: myManager.subToChannel(Constants.NOT_CATEGORIES[index]);
+                            break;
+                        case 4: myManager.subToChannel(Constants.NOT_CATEGORIES[index]);
+                            break;
+                        case 5: myManager.subToChannel(Constants.NOT_CATEGORIES[index]);
+                            break;
+                        case 6: myManager.subToChannel(Constants.NOT_CATEGORIES[index]);
+                            break;
+                        case 7: myManager.subToChannel(Constants.NOT_CATEGORIES[index]);
+                            break;
+                        case 8: myManager.subToAllChannels();
+                            break;
+                    }
+
+                    Toast.makeText(getContext(),"Changed subscription to "+list.getEntries()[index], Toast.LENGTH_LONG).show();
+                }
+                return true;
+            }
+        });
     }
 }

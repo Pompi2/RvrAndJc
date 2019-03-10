@@ -2,7 +2,7 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
     <PreferenceCategory
-        android:title="Notification Preferences"/>
+        android:title="Notification Preferences" />
 
     <ListPreference
         android:defaultValue="1"
