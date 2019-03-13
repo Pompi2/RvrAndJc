@@ -1,5 +1,6 @@
 package com.hashik.rvrandjc.models;
 
+import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
@@ -34,6 +35,7 @@ public class MyNotificationManager {
         NotificationCompat.Builder mBuilder =
                 new NotificationCompat.Builder(mCtx, Constants.CHANNEL_ID)
                         .setSmallIcon(R.drawable.ic_applogov)
+                        .setDefaults(Notification.DEFAULT_SOUND)
                         .setContentTitle(title)
                         .setContentText(body);
 
