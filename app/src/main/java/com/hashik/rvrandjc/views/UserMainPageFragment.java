@@ -5,10 +5,12 @@ import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.hashik.rvrandjc.R;
 import com.hashik.rvrandjc.models.RootFragmentManager;
@@ -26,5 +28,9 @@ public class UserMainPageFragment extends Fragment {
         RootFragmentManager.getInstance().setCurrentFragment(1); // 1 is for UserMainPage
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_user_main_page, container, false);
+    }
+
+    public void onBackPressed(){
+        Toast.makeText(getActivity(),"Back pressed",Toast.LENGTH_LONG).show();
     }
 }

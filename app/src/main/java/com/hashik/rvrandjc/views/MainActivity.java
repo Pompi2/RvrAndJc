@@ -1,6 +1,7 @@
 package com.hashik.rvrandjc.views;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
 import android.app.Notification;
@@ -23,12 +24,23 @@ import com.hashik.rvrandjc.models.NotificationSubscriptionManager;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = "MainActivity";
     private AHBottomNavigation bottomNavigation;
     private ViewPager mainViewPager;
 
+
+    @Override
+    public void onBackPressed() {
+        List<Fragment> fragmentList = getSupportFragmentManager().getFragments();
+        for (Fragment f : fragmentList) {
+            if (f instanceof UserMainPageFragment) {
+                ((UserMainPageFragment) f).onBackPressed();
+            }
+        }
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
