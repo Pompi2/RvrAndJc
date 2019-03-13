@@ -35,5 +35,4 @@ public class NotificationFragment extends Fragment {
         mViewModel = ViewModelProviders.of(this).get(NotificationViewModel.class);
         // TODO: Use the ViewModel
     }
-
 }
