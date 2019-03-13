@@ -71,6 +71,7 @@
                         android:layout_margin="10dp"
                         android:layout_toEndOf="@id/personicon"
                         android:background="@android:color/transparent"
+                        android:focusable="true"
                         android:hint="@string/user_name"
                         android:inputType="text"
                         android:textColorHint="@color/edittext_hint_color" />
@@ -113,10 +114,12 @@
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:background="@drawable/login_button"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:foreground="?attr/selectableItemBackground"
                     android:text="@string/sign_in"
                     android:textColor="@android:color/white"
-                    android:textSize="16sp"
-                    />
+                    android:textSize="16sp" />
             </LinearLayout>
         </androidx.cardview.widget.CardView>
         <TextView
