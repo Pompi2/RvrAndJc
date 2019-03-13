@@ -11,7 +11,8 @@
         android:theme="@style/AppTheme">
 
         <activity android:name=".views.MainActivity"
-            android:screenOrientation="locked">
+            android:screenOrientation="locked"
+            android:windowSoftInputMode="adjustPan">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
