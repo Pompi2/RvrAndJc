@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.hashik.rvrandjc.R;
+import com.hashik.rvrandjc.models.RootFragmentManager;
 
 
 public class UserMainPageFragment extends Fragment {
@@ -22,6 +23,7 @@ public class UserMainPageFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        RootFragmentManager.getInstance().setCurrentFragment(1); // 1 is for UserMainPage
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_user_main_page, container, false);
     }

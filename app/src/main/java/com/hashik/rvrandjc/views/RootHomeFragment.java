@@ -14,6 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.hashik.rvrandjc.R;
+import com.hashik.rvrandjc.models.RootFragmentManager;
 
 public class RootHomeFragment extends Fragment {
 
@@ -28,7 +29,15 @@ public class RootHomeFragment extends Fragment {
                              Bundle savedInstanceState) {
         FragmentTransaction transaction = getFragmentManager()
                 .beginTransaction();
-        transaction.replace(R.id.root_frame, new SignInFragment());
+        switch (RootFragmentManager.getInstance().getCurrentFragment()){
+            case 0: transaction.replace(R.id.root_frame, new SignInFragment());
+            break;
+            case 1: transaction.replace(R.id.root_frame, new UserMainPageFragment());
+            break;
+
+            default: transaction.replace(R.id.root_frame, new SignInFragment());
+
+        }
         transaction.commit();
 
         // Inflate the layout for this fragment

@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.hashik.rvrandjc.R;
+import com.hashik.rvrandjc.models.RootFragmentManager;
 
 
 public class SignInFragment extends Fragment {
@@ -26,6 +27,8 @@ public class SignInFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        RootFragmentManager.getInstance().setCurrentFragment(0); // 0 is for signinfragment
+
         View myView = inflater.inflate(R.layout.fragment_sign_in, container, false);// Inflate the layout for this fragment
         signInButton = myView.findViewById(R.id.sign_in_button);
         signInButton.setOnClickListener(new View.OnClickListener() {
