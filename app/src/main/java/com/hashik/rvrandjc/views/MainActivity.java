@@ -33,11 +33,13 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         List<Fragment> fragmentList = getSupportFragmentManager().getFragments();
-        Boolean handled = false;
-        for (Fragment f : fragmentList) {
-            if (f instanceof UserMainPageFragment) {
-                handled = true;
-                ((UserMainPageFragment) f).onBackPressed();
+        boolean handled = false;
+        if (bottomNavigation.getCurrentItem() == 0) { // Handle back button by fragment only if it's pressed on home item
+            for (Fragment f : fragmentList) {
+                if (f instanceof UserMainPageFragment) {
+                    handled = true;
+                    ((UserMainPageFragment) f).onBackPressed();
+                }
             }
         }
 
