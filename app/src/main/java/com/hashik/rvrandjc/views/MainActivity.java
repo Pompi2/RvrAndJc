@@ -1,10 +1,12 @@
 package com.hashik.rvrandjc.views;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
 import android.app.Notification;
+import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -35,10 +37,28 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         List<Fragment> fragmentList = getSupportFragmentManager().getFragments();
+        Boolean handled = false;
         for (Fragment f : fragmentList) {
             if (f instanceof UserMainPageFragment) {
+                handled = true;
                 ((UserMainPageFragment) f).onBackPressed();
             }
+        }
+
+        if(!handled){ // If the fragments can't handle it, the main activity should handle it
+            //Dialog on click listener
+            DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    if (DialogInterface.BUTTON_POSITIVE == which) {
+                        MainActivity.super.onBackPressed();
+                    }
+                }
+            };
+            //Showing the alert dialog
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setMessage("Are you sure you want to exit?").setPositiveButton("Yes", dialogClickListener)
+                    .setNegativeButton("No", dialogClickListener).show();
         }
     }
 
