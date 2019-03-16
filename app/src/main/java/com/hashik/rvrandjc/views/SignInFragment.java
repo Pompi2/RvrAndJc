@@ -36,9 +36,10 @@ public class SignInFragment extends Fragment {
             public void onClick(View v) {
                 Fragment fragment = new UserMainPageFragment();
                 FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                fragmentTransaction.replace(R.id.root_frame, fragment);
-                fragmentTransaction.commit();
+                FragmentTransaction transaction = fragmentManager.beginTransaction();
+                transaction.setCustomAnimations(R.anim.frag_entry_slide,R.anim.frag_exit_slide);
+                transaction.replace(R.id.root_frame, fragment);
+                transaction.commit();
             }
         });
         return myView;

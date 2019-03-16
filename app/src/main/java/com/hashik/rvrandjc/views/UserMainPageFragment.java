@@ -38,6 +38,7 @@ public class UserMainPageFragment extends Fragment {
                 //Initiating logout
                 FragmentTransaction transaction = getFragmentManager()
                         .beginTransaction();
+                transaction.setCustomAnimations(R.anim.frag_entry_slide,R.anim.frag_exit_slide);
                 transaction.replace(R.id.root_frame, new SignInFragment()).commit();
             }
         });
