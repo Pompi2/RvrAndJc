@@ -39,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
                 if (f instanceof UserMainPageFragment) {
                     handled = true;
                     ((UserMainPageFragment) f).onBackPressed();
+                    return;
                 }
             }
         }
