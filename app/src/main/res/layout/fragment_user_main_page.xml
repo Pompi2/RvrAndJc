@@ -3,39 +3,44 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
-        android:layout_width="match_parent"
-        android:layout_height="330dp"
-        android:background="@android:color/white"
         android:id="@+id/user_header"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:background="@android:color/white"
         android:orientation="vertical"
         tools:context=".views.UserMainPageFragment">
+
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="330dp">
+            android:layout_height="300dp">
+
             <Button
+                android:id="@+id/logout"
                 android:layout_width="35dp"
                 android:layout_height="35dp"
-                android:layout_marginTop="10dp"
-                android:id="@+id/logout"
                 android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
                 android:background="@drawable/ic_logout"
-                android:focusable="true"
-                android:foreground="?attr/selectableItemBackground"
                 android:clickable="true"
-                />
+                android:focusable="true"
+                android:foreground="?attr/selectableItemBackground" />
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="250dp"
                 android:background="@drawable/gradientbackground"
                 android:orientation="vertical">
+
                 <ImageView
                     android:layout_width="100dp"
                     android:layout_height="100dp"
                     android:layout_gravity="center_horizontal"
                     android:layout_marginTop="45dp"
-                    android:src="@drawable/ic_login_user"/>
+                    android:src="@drawable/ic_login_user" />
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -44,84 +49,91 @@
                     android:text="Y16IT830"
                     android:textColor="#fff"
                     android:textSize="17sp"
-                    android:textStyle="bold"/>
+                    android:textStyle="bold" />
             </LinearLayout>
 
             <androidx.cardview.widget.CardView
                 android:layout_width="350dp"
-                android:layout_height="80dp"
+                android:layout_height="75dp"
                 android:layout_centerHorizontal="true"
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="200dp"
                 android:layout_marginRight="10dp"
                 android:clickable="true"
-                app:cardElevation="10dp"
                 android:focusable="true"
                 android:foreground="?attr/selectableItemBackground"
-                app:cardCornerRadius="15dp">
+                app:cardCornerRadius="15dp"
+                app:cardElevation="10dp">
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="horizontal"
                     android:weightSum="3">
+
                     <LinearLayout
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:gravity="center"
                         android:orientation="vertical">
+
                         <TextView
                             style="@style/UserCardTags"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
-                            android:text="CGPA"
-                            />
+                            android:text="CGPA" />
+
                         <TextView
                             style="@style/UserCardText"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="8.7"/>
+                            android:text="8.7" />
 
                     </LinearLayout>
+
                     <LinearLayout
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:gravity="center"
                         android:orientation="vertical">
+
                         <TextView
                             style="@style/UserCardTags"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
-                            android:text="Attendance"
-                            />
+                            android:text="Attendance" />
+
                         <TextView
                             style="@style/UserCardText"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="79%"/>
+                            android:text="79%" />
 
                     </LinearLayout>
+
                     <LinearLayout
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:gravity="center"
                         android:orientation="vertical">
+
                         <TextView
                             style="@style/UserCardTags"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
-                            android:text="Rank"
-                            />
+                            android:text="Rank" />
+
                         <TextView
                             style="@style/UserCardText"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="55"/>
+                            android:text="55" />
 
                     </LinearLayout>
                 </LinearLayout>
@@ -129,28 +141,195 @@
             </androidx.cardview.widget.CardView>
         </RelativeLayout>
     </LinearLayout>
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/selections"
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_below="@id/user_header">
+    <LinearLayout
+        android:id="@+id/selections"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
-        <androidx.cardview.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            app:cardElevation="5dp"
-            app:cardBackgroundColor="#F5F5F5"
-            android:layout_marginStart="15dp"
-            android:layout_marginEnd="15dp"
-            app:cardCornerRadius="15dp"
+            android:layout_height="wrap_content"
             android:clickable="true"
             android:focusable="true"
-            android:foreground="?attr/selectableItemBackground">
+            android:foreground="?attr/selectableItemBackground"
+            android:orientation="vertical">
 
-        </androidx.cardview.widget.CardView>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="20dp"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="30dp"
+                    android:layout_weight="0.5"
+                    android:src="@drawable/ic_login_user" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="32dp"
+                    android:layout_weight="1"
+                    android:alpha="0.6"
+                    android:gravity="center_vertical"
+                    android:text="Mid Attendance"
+                    android:textColor="@android:color/black"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginStart="80dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="20dp"
+                android:background="?android:attr/listDivider" />
+
         </LinearLayout>
-    </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?attr/selectableItemBackground"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="20dp"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="30dp"
+                    android:layout_weight="0.5"
+                    android:src="@drawable/ic_login_user" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="32dp"
+                    android:layout_weight="1"
+                    android:alpha="0.6"
+                    android:gravity="center_vertical"
+                    android:text="Mid Attendance"
+                    android:textColor="@android:color/black"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginStart="80dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="20dp"
+                android:background="?android:attr/listDivider" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?attr/selectableItemBackground"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="20dp"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="30dp"
+                    android:layout_weight="0.5"
+                    android:src="@drawable/ic_login_user" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="32dp"
+                    android:layout_weight="1"
+                    android:alpha="0.6"
+                    android:gravity="center_vertical"
+                    android:text="Mid Attendance"
+                    android:textColor="@android:color/black"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginStart="80dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="20dp"
+                android:background="?android:attr/listDivider" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?attr/selectableItemBackground"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="20dp"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="30dp"
+                    android:layout_weight="0.5"
+                    android:src="@drawable/ic_login_user" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="32dp"
+                    android:layout_weight="1"
+                    android:alpha="0.6"
+                    android:gravity="center_vertical"
+                    android:text="Mid Attendance"
+                    android:textColor="@android:color/black"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginStart="80dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="20dp"
+                android:background="?android:attr/listDivider" />
+
+        </LinearLayout>
+    </LinearLayout>
+    </ScrollView>
+
 </RelativeLayout>
