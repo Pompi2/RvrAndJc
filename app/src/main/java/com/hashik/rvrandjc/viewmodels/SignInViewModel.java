@@ -56,4 +56,8 @@ public class SignInViewModel extends ViewModel {
     public void setValidCreds(){
         validCreds.setValue(null);
     }
+    public void setProcessing(){
+        validCreds.setValue(null);
+    }
+
 }

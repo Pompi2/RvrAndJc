@@ -15,6 +15,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.hashik.rvrandjc.R;
 import com.hashik.rvrandjc.models.RootFragmentManager;
@@ -63,6 +64,7 @@ public class SignInFragment extends Fragment {
                         //Show invalid credentials dialog
                     }
                 }catch (Exception e){
+                    Log.e(TAG, "onChanged: valid creds Ignoring the error");
                     //ignore
                 }
             }
@@ -70,10 +72,16 @@ public class SignInFragment extends Fragment {
         signInViewModel.getProcessing().observe(this, new Observer<Boolean>() {
             @Override
             public void onChanged(Boolean aBoolean) {
-                if(aBoolean){
-                    //Show processing
-                }else{
-                    //Stop processing
+                try{
+                    if(aBoolean){
+                        //Show processing
+                        Toast.makeText(getActivity(), "processing", Toast.LENGTH_SHORT).show();
+                    }else{
+                        Toast.makeText(getActivity(), "STOP processing", Toast.LENGTH_SHORT).show();
+                        //Stop processing
+                    }
+                }catch (Exception e){
+                    Log.e(TAG, "onChanged: Processing Ignoring");
                 }
             }
         });
@@ -83,7 +91,10 @@ public class SignInFragment extends Fragment {
     @Override
     public void onDestroy() {
         Log.d(TAG, "onDestroy: Sign In fragment destroyed");
+        signInViewModel.getValidCreds().removeObservers(this);
+        signInViewModel.getProcessing().removeObservers(this);
         signInViewModel.setValidCreds();
+        signInViewModel.setProcessing();
         super.onDestroy();
     }
 
