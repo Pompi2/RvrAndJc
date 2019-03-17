@@ -3,6 +3,7 @@ package com.hashik.rvrandjc.viewmodels;
 import android.content.Context;
 import android.util.Log;
 
+import com.hashik.rvrandjc.models.GlobalApplication;
 import com.hashik.rvrandjc.models.JSONDataModels.JSONData;
 import com.hashik.rvrandjc.models.JSONDataModels.UserData;
 import com.hashik.rvrandjc.services.LoginService;
@@ -30,6 +31,7 @@ public class SignInViewModel extends ViewModel {
             @Override
             public void onResponse(Call<JSONData> call, Response<JSONData> response) {
                 Log.d(TAG, "onResponse: Got the response!"+response.body().getUser().getNumber());
+                GlobalApplication.setUserData(response.body());
                 validCreds.setValue(true);
                 processing.setValue(false);
             }
