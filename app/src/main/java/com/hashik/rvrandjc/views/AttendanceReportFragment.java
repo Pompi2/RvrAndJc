@@ -13,12 +13,16 @@ import android.view.ViewGroup;
 import com.hashik.rvrandjc.R;
 import com.hashik.rvrandjc.models.RootFragmentManager;
 
+
 /**
- * A simple {@link Fragment} subclass.
+ * Fragment to show attendnence report
  */
 public class AttendanceReportFragment extends Fragment {
 
 
+    /**
+     * Instantiates a new Attendance report fragment.
+     */
     public AttendanceReportFragment() {
         // Required empty public constructor
     }
@@ -32,6 +36,9 @@ public class AttendanceReportFragment extends Fragment {
         return view;
     }
 
+    /**
+     * On back pressed.
+     */
     public void onBackPressed(){
         FragmentTransaction transaction = getFragmentManager()
                 .beginTransaction();
