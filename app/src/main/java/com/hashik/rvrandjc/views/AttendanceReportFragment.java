@@ -27,7 +27,7 @@ public class AttendanceReportFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         RootFragmentManager.getInstance().setCurrentFragment(4); // 4 is for AttendanceReportFragment
-        View view = inflater.inflate(R.layout.fragment_semester_grades, container, false); // Inflate the layout for this fragment
+        View view = inflater.inflate(R.layout.fragment_attendance_report, container, false); // Inflate the layout for this fragment
 
         return view;
     }
