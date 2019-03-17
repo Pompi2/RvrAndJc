@@ -1,5 +1,8 @@
 package com.hashik.rvrandjc.views;
 
+import android.content.ActivityNotFoundException;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -33,6 +36,7 @@ public class UserMainPageFragment extends Fragment {
         LinearLayout semesterGradesLayout = userLayout.findViewById(R.id.semester_grades_label);
         LinearLayout internalMarksLayout = userLayout.findViewById(R.id.internal_marks_label);
         LinearLayout attendanceReportLayout = userLayout.findViewById(R.id.attendance_report_label);
+        LinearLayout webSiteOpen = userLayout.findViewById(R.id.open_site);
 
         //Click listeners
         signOut.setOnClickListener(new View.OnClickListener() {
@@ -76,7 +80,22 @@ public class UserMainPageFragment extends Fragment {
                 transaction.replace(R.id.root_frame, new AttendanceReportFragment()).commit();
             }
         });
-
+        webSiteOpen.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String urlString = "http://rvrjcce.ac.in/";
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(urlString));
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                intent.setPackage("com.android.chrome");
+                try {
+                    getActivity().startActivity(intent);
+                } catch (ActivityNotFoundException ex) {
+                    // Chrome browser presumably not installed so allow user to choose instead
+                    intent.setPackage(null);
+                    getActivity().startActivity(intent);
+                }
+            }
+        });
 
         return userLayout;
     }

@@ -29,9 +29,9 @@
                 android:foreground="?attr/selectableItemBackground" />
 
             <LinearLayout
+                android:id="@+id/imageHeader"
                 android:layout_width="match_parent"
                 android:layout_height="250dp"
-                android:id="@+id/imageHeader"
                 android:background="@drawable/gradientbackground"
                 android:orientation="vertical">
 
@@ -56,10 +56,10 @@
             <androidx.cardview.widget.CardView
                 android:layout_width="350dp"
                 android:layout_height="75dp"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="-50dp"
                 android:layout_below="@id/imageHeader"
+                android:layout_centerHorizontal="true"
                 android:layout_marginLeft="10dp"
+                android:layout_marginTop="-50dp"
                 android:layout_marginRight="10dp"
                 android:clickable="true"
                 android:focusable="true"
@@ -157,7 +157,7 @@
             android:orientation="vertical">
 
             <LinearLayout
-                android:id="@+id/semester_grades_label"
+                android:id="@+id/open_site"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="?attr/selectableItemBackground"
@@ -178,7 +178,7 @@
                         android:layout_width="0dp"
                         android:layout_height="30dp"
                         android:layout_weight="0.5"
-                        android:src="@drawable/ic_login_user" />
+                        android:src="@drawable/ic_applogov" />
 
                     <TextView
                         android:layout_width="0dp"
@@ -186,7 +186,7 @@
                         android:layout_weight="1"
                         android:alpha="0.6"
                         android:gravity="center_vertical"
-                        android:text="Semester Grades"
+                        android:text="Open website"
                         android:textColor="@android:color/black"
                         android:textSize="15sp"
                         android:textStyle="bold" />
@@ -199,7 +199,6 @@
                     android:layout_marginTop="10dp"
                     android:layout_marginEnd="20dp"
                     android:background="?android:attr/listDivider" />
-
             </LinearLayout>
 
             <LinearLayout
@@ -232,7 +231,53 @@
                         android:layout_weight="1"
                         android:alpha="0.6"
                         android:gravity="center_vertical"
-                        android:text="Internal Marks"
+                        android:text="Internal marks"
+                        android:textColor="@android:color/black"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginStart="80dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="20dp"
+                    android:background="?android:attr/listDivider" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/semester_grades_label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?attr/selectableItemBackground"
+                android:clickable="true"
+                android:focusable="true"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginRight="20dp"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+
+                    <ImageView
+                        android:layout_width="0dp"
+                        android:layout_height="30dp"
+                        android:layout_weight="0.5"
+                        android:src="@drawable/ic_login_user" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="32dp"
+                        android:layout_weight="1"
+                        android:alpha="0.6"
+                        android:gravity="center_vertical"
+                        android:text="Semester grades"
                         android:textColor="@android:color/black"
                         android:textSize="15sp"
                         android:textStyle="bold" />
@@ -278,7 +323,7 @@
                         android:layout_weight="1"
                         android:alpha="0.6"
                         android:gravity="center_vertical"
-                        android:text="Attendance Report"
+                        android:text="Attendance report"
                         android:textColor="@android:color/black"
                         android:textSize="15sp"
                         android:textStyle="bold" />
@@ -293,7 +338,6 @@
                     android:background="?android:attr/listDivider" />
             </LinearLayout>
         </LinearLayout>
-
     </ScrollView>
 </RelativeLayout>
 
