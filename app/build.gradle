@@ -41,5 +41,16 @@ dependencies {
 
     //ExpandableCardView
     implementation 'com.alespero:expandable-cardview:0.6'
+
+    //Leak canary
+    debugImplementation 'com.squareup.leakcanary:leakcanary-android:1.5.4'
+    releaseImplementation 'com.squareup.leakcanary:leakcanary-android-no-op:1.5.4'
+
+    // Retrofit & OkHttp
+    implementation 'com.squareup.retrofit2:retrofit:2.4.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.4.0'
+
+    //Http logging interceptor
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.11.0'
 }
 apply plugin: 'com.google.gms.google-services'
