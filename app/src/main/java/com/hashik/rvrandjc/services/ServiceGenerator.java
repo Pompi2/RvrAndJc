@@ -1,7 +1,5 @@
 package com.hashik.rvrandjc.services;
 
-import android.content.Context;
-
 import com.hashik.rvrandjc.BuildConfig;
 import com.hashik.rvrandjc.models.GlobalApplication;
 
@@ -15,8 +13,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
  */
 public class ServiceGenerator {
 
-    public static <S> S createService(
-            Class<S> serviceClass, Context context) {
+    public static <S> S createService(Class<S> serviceClass) {
 
         Retrofit.Builder builder =
                 new Retrofit.Builder()
@@ -37,7 +34,7 @@ public class ServiceGenerator {
 
         if (!httpClient.interceptors().contains(logging)) {
             httpClient.addInterceptor(logging);
-            httpClient.addInterceptor(new ConnectivityInterceptor(context));
+            httpClient.addInterceptor(new ConnectivityInterceptor());
             builder.client(httpClient.build());
             retrofit = builder.build();
         }
