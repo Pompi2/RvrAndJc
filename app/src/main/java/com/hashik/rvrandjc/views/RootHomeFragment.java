@@ -38,6 +38,8 @@ public class RootHomeFragment extends Fragment {
             break;
             case 3: transaction.replace(R.id.root_frame, new InternalMarksFragment());
             break;
+            case 4: transaction.replace(R.id.root_frame, new AttendanceReportFragment());
+            break;
             default: transaction.replace(R.id.root_frame, new SignInFragment());
 
         }

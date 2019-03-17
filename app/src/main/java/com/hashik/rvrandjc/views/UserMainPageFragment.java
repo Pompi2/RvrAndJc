@@ -32,6 +32,7 @@ public class UserMainPageFragment extends Fragment {
         signOut = userLayout.findViewById(R.id.logout);
         LinearLayout semesterGradesLayout = userLayout.findViewById(R.id.semester_grades_label);
         LinearLayout internalMarksLayout = userLayout.findViewById(R.id.internal_marks_label);
+        LinearLayout attendanceReportLayout = userLayout.findViewById(R.id.attendance_report_label);
 
         //Click listeners
         signOut.setOnClickListener(new View.OnClickListener() {
@@ -63,6 +64,16 @@ public class UserMainPageFragment extends Fragment {
                         .beginTransaction();
                 transaction.setCustomAnimations(R.anim.frag_entry_slide, R.anim.frag_exit_slide);
                 transaction.replace(R.id.root_frame, new InternalMarksFragment()).commit();
+            }
+        });
+        attendanceReportLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //Initiating transition
+                FragmentTransaction transaction = getFragmentManager()
+                        .beginTransaction();
+                transaction.setCustomAnimations(R.anim.frag_entry_slide, R.anim.frag_exit_slide);
+                transaction.replace(R.id.root_frame, new AttendanceReportFragment()).commit();
             }
         });
 

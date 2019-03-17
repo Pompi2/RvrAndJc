@@ -40,10 +40,13 @@ public class MainActivity extends AppCompatActivity {
                     handled = true;
                     ((SemesterGradesFragment) f).onBackPressed();
                     return;
-                }
-                if (f instanceof InternalMarksFragment) {
+                }else if (f instanceof InternalMarksFragment) {
                     handled = true;
                     ((InternalMarksFragment) f).onBackPressed();
+                    return;
+                }else if(f instanceof AttendanceReportFragment){
+                    handled = true;
+                    ((AttendanceReportFragment) f).onBackPressed();
                     return;
                 }
             }
