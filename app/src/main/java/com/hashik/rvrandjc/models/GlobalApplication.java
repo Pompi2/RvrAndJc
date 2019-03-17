@@ -5,6 +5,7 @@ import android.app.Application;
 import com.squareup.leakcanary.LeakCanary;
 
 public class GlobalApplication extends Application {
+    private static final String BASEURL = "10.0.2.2:3000/";
 
     @Override
     public void onCreate(){
@@ -16,5 +17,9 @@ public class GlobalApplication extends Application {
         }
         LeakCanary.install(this);
         // Normal app init code...
+    }
+
+    public static String getBaseurl(){
+        return BASEURL;
     }
 }

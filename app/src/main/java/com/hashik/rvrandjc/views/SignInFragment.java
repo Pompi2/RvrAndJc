@@ -17,7 +17,7 @@ import com.hashik.rvrandjc.models.RootFragmentManager;
 
 
 public class SignInFragment extends Fragment {
-    Button signInButton;
+    private Button signInButton;
     private static final String TAG = "SignInFragment";
 
     public SignInFragment() {
