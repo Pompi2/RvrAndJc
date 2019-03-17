@@ -67,6 +67,8 @@ public class UserMainPageFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 //Initiating logout
+                SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(getActivity());
+                sp.edit().putBoolean("login",false).apply();// setting login flag to null
                 FragmentTransaction transaction = getFragmentManager()
                         .beginTransaction();
                 transaction.setCustomAnimations(R.anim.frag_entry_slide, R.anim.frag_exit_slide);
