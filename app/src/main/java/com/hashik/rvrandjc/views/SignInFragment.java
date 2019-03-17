@@ -99,6 +99,7 @@ public class SignInFragment extends Fragment {
         Gson gson = new Gson();
         String json = gson.toJson(GlobalApplication.getUserData());
         editor.putString("userdata", json);
+        editor.putBoolean("login", true);
         editor.apply();
     }
 

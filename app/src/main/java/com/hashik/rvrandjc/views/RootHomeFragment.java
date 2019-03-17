@@ -1,13 +1,16 @@
 package com.hashik.rvrandjc.views;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,9 +22,16 @@ import com.hashik.rvrandjc.models.RootFragmentManager;
 public class RootHomeFragment extends Fragment {
 
     private static final String TAG = "RootHomeFragment";
-
+    private boolean login;
     public RootHomeFragment() {
         // Required empty public constructor
+    }
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(getActivity());
+        login = sp.getBoolean("login", false);
     }
 
     @Override
@@ -29,6 +39,9 @@ public class RootHomeFragment extends Fragment {
                              Bundle savedInstanceState) {
         FragmentTransaction transaction = getFragmentManager()
                 .beginTransaction();
+        if(login){
+            RootFragmentManager.getInstance().setCurrentFragment(1); // 1 is for usermainpagefragment
+        }
         switch (RootFragmentManager.getInstance().getCurrentFragment()){
             case 0: transaction.replace(R.id.root_frame, new SignInFragment());
             break;
