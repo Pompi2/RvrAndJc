@@ -36,6 +36,8 @@ public class RootHomeFragment extends Fragment {
             break;
             case 2: transaction.replace(R.id.root_frame, new SemesterGradesFragment());
             break;
+            case 3: transaction.replace(R.id.root_frame, new InternalMarksFragment());
+            break;
             default: transaction.replace(R.id.root_frame, new SignInFragment());
 
         }
