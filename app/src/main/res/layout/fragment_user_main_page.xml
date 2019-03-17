@@ -155,6 +155,7 @@
             android:orientation="vertical">
 
             <LinearLayout
+                android:id="@+id/semester_grades_label"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="?attr/selectableItemBackground"
@@ -200,6 +201,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/internal_marks_label"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="?attr/selectableItemBackground"
@@ -245,6 +247,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/attendance_report_label"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="?attr/selectableItemBackground"
