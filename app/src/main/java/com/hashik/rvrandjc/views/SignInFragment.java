@@ -1,5 +1,6 @@
 package com.hashik.rvrandjc.views;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -9,6 +10,7 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.lifecycle.ViewModelProviders;
 
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,7 +19,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.gson.Gson;
 import com.hashik.rvrandjc.R;
+import com.hashik.rvrandjc.models.GlobalApplication;
 import com.hashik.rvrandjc.models.RootFragmentManager;
 import com.hashik.rvrandjc.viewmodels.SignInViewModel;
 
@@ -59,6 +63,7 @@ public class SignInFragment extends Fragment {
                 try {
 
                     if(aBoolean){
+                        setSignInFlag();
                         goToUserMainPageFragment();
                     }else{
                         //Show invalid credentials dialog
@@ -86,6 +91,15 @@ public class SignInFragment extends Fragment {
             }
         });
         return myView;
+    }
+
+    private void setSignInFlag() {
+        SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(getActivity());
+        SharedPreferences.Editor editor = sp.edit();
+        Gson gson = new Gson();
+        String json = gson.toJson(GlobalApplication.getUserData());
+        editor.putString("userdata", json);
+        editor.apply();
     }
 
     @Override

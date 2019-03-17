@@ -2,18 +2,25 @@ package com.hashik.rvrandjc.views;
 
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.gson.Gson;
 import com.hashik.rvrandjc.R;
+import com.hashik.rvrandjc.models.GlobalApplication;
+import com.hashik.rvrandjc.models.JSONDataModels.JSONData;
 import com.hashik.rvrandjc.models.RootFragmentManager;
 
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
@@ -25,6 +32,15 @@ public class UserMainPageFragment extends Fragment {
         // Required empty public constructor
     }
 
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(getActivity());
+        Gson gson = new Gson();
+        String json = sp.getString("userdata", null);
+        JSONData userData = gson.fromJson(json, JSONData.class);
+        GlobalApplication.setUserData(userData);
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -37,7 +53,8 @@ public class UserMainPageFragment extends Fragment {
         LinearLayout internalMarksLayout = userLayout.findViewById(R.id.internal_marks_label);
         LinearLayout attendanceReportLayout = userLayout.findViewById(R.id.attendance_report_label);
         LinearLayout webSiteOpen = userLayout.findViewById(R.id.open_site);
-
+        TextView rolno = userLayout.findViewById(R.id.roll_no);
+        rolno.setText(GlobalApplication.getUserData().getUser().getNumber());
         //Click listeners
         signOut.setOnClickListener(new View.OnClickListener() {
             @Override
