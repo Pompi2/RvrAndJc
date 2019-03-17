@@ -54,7 +54,14 @@ public class UserMainPageFragment extends Fragment {
         LinearLayout attendanceReportLayout = userLayout.findViewById(R.id.attendance_report_label);
         LinearLayout webSiteOpen = userLayout.findViewById(R.id.open_site);
         TextView rolno = userLayout.findViewById(R.id.roll_no);
+        TextView gpa = userLayout.findViewById(R.id.gpa);
+        TextView rank = userLayout.findViewById(R.id.rank);
+
+        gpa.setText(GlobalApplication.getUserData().getUser().getCgpa());
+        rank.setText(GlobalApplication.getUserData().getUser().getRank());
         rolno.setText(GlobalApplication.getUserData().getUser().getNumber());
+
+
         //Click listeners
         signOut.setOnClickListener(new View.OnClickListener() {
             @Override

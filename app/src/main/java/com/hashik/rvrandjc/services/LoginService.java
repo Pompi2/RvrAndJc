@@ -10,7 +10,7 @@ import retrofit2.http.Headers;
 import retrofit2.http.POST;
 
 public interface LoginService {
-    @POST("/raw/ZHbqjiZk")
+    @POST("/raw/smkMA2by")
     @Headers("Content-type: application/json")
     Call<JSONData> initiateLogin();
 }
