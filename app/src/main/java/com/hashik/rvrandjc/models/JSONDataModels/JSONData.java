@@ -1,8 +1,6 @@
 package com.hashik.rvrandjc.models.JSONDataModels;
 
 public class JSONData {
-    public class MyPojo
-    {
         private Attendancereport[] attendancereport;
 
         private Internalmarks[] internalmarks;
@@ -56,5 +54,4 @@ public class JSONData {
         {
             return "ClassPojo [attendancereport = "+attendancereport+", internalmarks = "+internalmarks+", semester = "+semester+", user = "+user+"]";
         }
-    }
 }

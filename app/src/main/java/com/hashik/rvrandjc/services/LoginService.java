@@ -9,7 +9,7 @@ import retrofit2.http.GET;
 import retrofit2.http.Headers;
 
 public interface LoginService {
-    @GET("/posts")
+    @GET("/posts/2")
     @Headers("Content-type: application/json")
-    Call<JSONData> initiateLogin(@Body UserData user);
+    Call<JSONData> initiateLogin();
 }
