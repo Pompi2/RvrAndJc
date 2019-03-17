@@ -11,20 +11,11 @@ import com.squareup.leakcanary.LeakCanary;
 public class GlobalApplication extends Application {
     private static final String BASEURL = "https://pastebin.com";
     private static JSONData userData;
-
-    public static SharedPreferences getSp() {
-        return sp;
-    }
-
     private static SharedPreferences sp;
 
-    public GlobalApplication(){
-        sp = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
-    }
 
     public void setUserData(JSONData userData) {
         GlobalApplication.userData = userData;
-        storeToSharedPreferences();
     }
 
     private void storeToSharedPreferences() {
@@ -42,10 +33,6 @@ public class GlobalApplication extends Application {
     }
 
     public static JSONData getUserData() {
-        if (userData == null){
-            getDataFromSharedPreferences();
-            return userData;
-        }
         return userData;
     }
 
