@@ -5,6 +5,7 @@ import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.lifecycle.ViewModelProviders;
 
@@ -43,11 +44,37 @@ public class SignInFragment extends Fragment {
         password = myView.findViewById(R.id.et_password);
         signInViewModel = ViewModelProviders.of(getActivity()).get(SignInViewModel.class);
 
-        //Clicklisteners
+        //Clicklisteners, Observers
         signInButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 signInViewModel.validateCredentials(username.getText().toString(), password.getText().toString());
+            }
+        });
+
+        signInViewModel.getValidCreds().observe(this, new Observer<Boolean>() {
+            @Override
+            public void onChanged(Boolean aBoolean) {
+                try {
+
+                    if(aBoolean){
+                        goToUserMainPageFragment();
+                    }else{
+                        //Show invalid credentials dialog
+                    }
+                }catch (Exception e){
+                    //ignore
+                }
+            }
+        });
+        signInViewModel.getProcessing().observe(this, new Observer<Boolean>() {
+            @Override
+            public void onChanged(Boolean aBoolean) {
+                if(aBoolean){
+                    //Show processing
+                }else{
+                    //Stop processing
+                }
             }
         });
         return myView;
@@ -55,8 +82,9 @@ public class SignInFragment extends Fragment {
 
     @Override
     public void onDestroy() {
-        super.onDestroy();
         Log.d(TAG, "onDestroy: Sign In fragment destroyed");
+        signInViewModel.setValidCreds();
+        super.onDestroy();
     }
 
     private void goToUserMainPageFragment(){
