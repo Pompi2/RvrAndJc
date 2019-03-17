@@ -41,6 +41,11 @@ public class MainActivity extends AppCompatActivity {
                     ((SemesterGradesFragment) f).onBackPressed();
                     return;
                 }
+                if (f instanceof InternalMarksFragment) {
+                    handled = true;
+                    ((InternalMarksFragment) f).onBackPressed();
+                    return;
+                }
             }
         }
 

@@ -55,7 +55,7 @@ public class UserMainPageFragment extends Fragment {
                 transaction.replace(R.id.root_frame, new SemesterGradesFragment()).commit();
             }
         });
-        semesterGradesLayout.setOnClickListener(new View.OnClickListener() {
+        internalMarksLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //Initiating transition
