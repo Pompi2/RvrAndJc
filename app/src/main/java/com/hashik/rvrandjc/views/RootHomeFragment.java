@@ -22,7 +22,7 @@ import com.hashik.rvrandjc.models.RootFragmentManager;
 public class RootHomeFragment extends Fragment {
 
     private static final String TAG = "RootHomeFragment";
-    private boolean login;
+    private Boolean login;
     public RootHomeFragment() {
         // Required empty public constructor
     }
@@ -30,8 +30,10 @@ public class RootHomeFragment extends Fragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(getActivity());
-        login = sp.getBoolean("login", false);
+        if(login == null){
+            SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(getActivity());
+            login = sp.getBoolean("login", false);
+        }
     }
 
     @Override
