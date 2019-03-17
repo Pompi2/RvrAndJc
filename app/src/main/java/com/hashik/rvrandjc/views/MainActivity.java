@@ -36,9 +36,9 @@ public class MainActivity extends AppCompatActivity {
         boolean handled = false;
         if (bottomNavigation.getCurrentItem() == 0) { // Handle back button by fragment only if it's pressed on home item
             for (Fragment f : fragmentList) {
-                if (f instanceof UserMainPageFragment) {
+                if (f instanceof SemesterGradesFragment) {
                     handled = true;
-                    ((UserMainPageFragment) f).onBackPressed();
+                    ((SemesterGradesFragment) f).onBackPressed();
                     return;
                 }
             }

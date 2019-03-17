@@ -3,6 +3,7 @@ package com.hashik.rvrandjc.views;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -31,5 +32,12 @@ public class SemesterGradesFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_semester_grades, container, false); // Inflate the layout for this fragment
 
         return view;
+    }
+
+    public void onBackPressed(){
+        FragmentTransaction transaction = getFragmentManager()
+                .beginTransaction();
+        transaction.setCustomAnimations(R.anim.frag_entry_slide,R.anim.frag_exit_slide);
+        transaction.replace(R.id.root_frame, new UserMainPageFragment()).commit();
     }
 }
