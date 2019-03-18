@@ -60,34 +60,24 @@ public class SignInFragment extends Fragment {
         signInViewModel.getValidCreds().observe(this, new Observer<Boolean>() {
             @Override
             public void onChanged(Boolean aBoolean) {
-                try {
-
-                    if(aBoolean){
+                    if (aBoolean!= null && aBoolean) {
                         setSignInFlag();
                         goToUserMainPageFragment();
-                    }else{
+                    } else {
                         //Show invalid credentials dialog
                     }
-                }catch (Exception e){
-                    Log.e(TAG, "onChanged: valid creds Ignoring the error");
-                    //ignore
-                }
             }
         });
         signInViewModel.getProcessing().observe(this, new Observer<Boolean>() {
             @Override
             public void onChanged(Boolean aBoolean) {
-                try{
-                    if(aBoolean){
+                    if (aBoolean!= null && aBoolean) {
                         //Show processing
                         Toast.makeText(getActivity(), "processing", Toast.LENGTH_SHORT).show();
-                    }else{
+                    } else {
                         Toast.makeText(getActivity(), "STOP processing", Toast.LENGTH_SHORT).show();
                         //Stop processing
                     }
-                }catch (Exception e){
-                    Log.e(TAG, "onChanged: Processing Ignoring");
-                }
             }
         });
         return myView;
@@ -113,11 +103,11 @@ public class SignInFragment extends Fragment {
         super.onDestroy();
     }
 
-    private void goToUserMainPageFragment(){
+    private void goToUserMainPageFragment() {
         Fragment fragment = new UserMainPageFragment();
         FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
         FragmentTransaction transaction = fragmentManager.beginTransaction();
-        transaction.setCustomAnimations(R.anim.frag_entry_slide,R.anim.frag_exit_slide);
+        transaction.setCustomAnimations(R.anim.frag_entry_slide, R.anim.frag_exit_slide);
         transaction.replace(R.id.root_frame, fragment);
         transaction.commit();
     }
