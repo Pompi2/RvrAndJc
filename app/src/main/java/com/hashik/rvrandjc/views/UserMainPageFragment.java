@@ -35,11 +35,13 @@ public class UserMainPageFragment extends Fragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(getActivity());
-        Gson gson = new Gson();
-        String json = sp.getString("userdata", null);
-        JSONData userData = gson.fromJson(json, JSONData.class);
-        GlobalApplication.setUserData(userData);
+        if (GlobalApplication.getUserData() != null) {
+            SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(getActivity());
+            Gson gson = new Gson();
+            String json = sp.getString("userdata", null);
+            JSONData userData = gson.fromJson(json, JSONData.class);
+            GlobalApplication.setUserData(userData);
+        }
     }
 
     @Override
@@ -68,6 +70,7 @@ public class UserMainPageFragment extends Fragment {
             public void onClick(View v) {
                 //Initiating logout
                 SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(getActivity());
+                GlobalApplication.setUserData(null);
                 sp.edit().putBoolean("login",false).apply();// setting login flag to null
                 FragmentTransaction transaction = getFragmentManager()
                         .beginTransaction();

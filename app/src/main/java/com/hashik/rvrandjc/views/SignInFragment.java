@@ -60,7 +60,8 @@ public class SignInFragment extends Fragment {
         signInViewModel.getValidCreds().observe(this, new Observer<Boolean>() {
             @Override
             public void onChanged(Boolean aBoolean) {
-                    if (aBoolean!= null && aBoolean) {
+                if(aBoolean != null) //Check only if it's not null
+                    if (aBoolean) {
                         setSignInFlag();
                         goToUserMainPageFragment();
                     } else {
@@ -71,11 +72,12 @@ public class SignInFragment extends Fragment {
         signInViewModel.getProcessing().observe(this, new Observer<Boolean>() {
             @Override
             public void onChanged(Boolean aBoolean) {
-                    if (aBoolean!= null && aBoolean) {
+                if(aBoolean != null) //Check only if it's not null
+                    if (aBoolean) {
                         //Show processing
-                        Toast.makeText(getActivity(), "processing", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getActivity(), "Loading", Toast.LENGTH_SHORT).show();
                     } else {
-                        Toast.makeText(getActivity(), "STOP processing", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getActivity(), "Done loading", Toast.LENGTH_SHORT).show();
                         //Stop processing
                     }
             }
