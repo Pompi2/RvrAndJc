@@ -51,7 +51,7 @@
                 <View
                     android:layout_width="12dp"
                     android:layout_height="12dp"
-                    android:background="@drawable/ic_applogov"
+                    android:background="@drawable/ic_app_logo"
                     android:layout_alignParentRight="false"
                     android:layout_alignParentEnd="false"
                     tools:ignore="RtlHardcoded" />

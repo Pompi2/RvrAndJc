@@ -43,8 +43,8 @@
                     android:src="@drawable/ic_login_user" />
 
                 <TextView
-                    android:layout_width="wrap_content"
                     android:id="@+id/roll_no"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:layout_marginTop="10dp"
@@ -88,10 +88,10 @@
                             android:text="CGPA" />
 
                         <TextView
+                            android:id="@+id/gpa"
                             style="@style/UserCardText"
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:id="@+id/gpa"/>
+                            android:layout_height="wrap_content" />
 
                     </LinearLayout>
 
@@ -132,11 +132,10 @@
                             android:text="Rank" />
 
                         <TextView
+                            android:id="@+id/rank"
                             style="@style/UserCardText"
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:id="@+id/rank"
-                            />
+                            android:layout_height="wrap_content" />
 
                     </LinearLayout>
                 </LinearLayout>
@@ -179,7 +178,8 @@
                         android:layout_width="0dp"
                         android:layout_height="30dp"
                         android:layout_weight="0.5"
-                        android:src="@drawable/ic_applogov" />
+                        android:alpha="0.9"
+                        android:src="@drawable/ic_website" />
 
                     <TextView
                         android:layout_width="0dp"
@@ -224,7 +224,8 @@
                         android:layout_width="0dp"
                         android:layout_height="30dp"
                         android:layout_weight="0.5"
-                        android:src="@drawable/ic_login_user" />
+                        android:alpha="0.9"
+                        android:src="@drawable/ic_grade" />
 
                     <TextView
                         android:layout_width="0dp"
@@ -270,7 +271,8 @@
                         android:layout_width="0dp"
                         android:layout_height="30dp"
                         android:layout_weight="0.5"
-                        android:src="@drawable/ic_login_user" />
+                        android:alpha="0.9"
+                        android:src="@drawable/ic_sem_grade" />
 
                     <TextView
                         android:layout_width="0dp"
@@ -316,7 +318,8 @@
                         android:layout_width="0dp"
                         android:layout_height="30dp"
                         android:layout_weight="0.5"
-                        android:src="@drawable/ic_login_user" />
+                        android:alpha="0.9"
+                        android:src="@drawable/ic_att_report" />
 
                     <TextView
                         android:layout_width="0dp"

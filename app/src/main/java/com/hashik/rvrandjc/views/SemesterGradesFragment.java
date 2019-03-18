@@ -12,9 +12,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.hashik.rvrandjc.R;
-import com.hashik.rvrandjc.adapters.SemesterAdapter;
+import com.hashik.rvrandjc.adapters.SemesterGradesAdapter;
 import com.hashik.rvrandjc.models.GlobalApplication;
-import com.hashik.rvrandjc.models.JSONDataModels.Semester;
 import com.hashik.rvrandjc.models.RootFragmentManager;
 
 import java.util.Arrays;
@@ -38,7 +37,7 @@ public class SemesterGradesFragment extends Fragment {
         RootFragmentManager.getInstance().setCurrentFragment(2); // 2 is for SemesterGradesFragment
         View view = inflater.inflate(R.layout.fragment_semester_grades, container, false); // Inflate the layout for this fragment
         RecyclerView recyclerView = view.findViewById(R.id.semester_rv);
-        SemesterAdapter semesterAdapter = new SemesterAdapter(Arrays.asList(GlobalApplication.getUserData().getSemester()));
+        SemesterGradesAdapter semesterAdapter = new SemesterGradesAdapter(Arrays.asList(GlobalApplication.getUserData().getSemester()));
 
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(layoutManager);

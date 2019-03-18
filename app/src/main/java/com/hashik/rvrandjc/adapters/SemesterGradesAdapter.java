@@ -23,13 +23,13 @@ import java.util.List;
 import androidx.recyclerview.widget.RecyclerView;
 
 
-public class SemesterAdapter extends RecyclerView.Adapter<SemesterAdapter.ViewHolder> {
+public class SemesterGradesAdapter extends RecyclerView.Adapter<SemesterGradesAdapter.ViewHolder> {
 
     private List<Semester> semesters;
     private SparseBooleanArray expandState = new SparseBooleanArray();
     private Context context;
 
-    public SemesterAdapter(List<Semester> repos) {
+    public SemesterGradesAdapter(List<Semester> repos) {
         this.semesters = repos;
         //set initial expanded state to false
         for (int i = 0; i < repos.size(); i++) {
@@ -38,14 +38,14 @@ public class SemesterAdapter extends RecyclerView.Adapter<SemesterAdapter.ViewHo
     }
 
     @Override
-    public SemesterAdapter.ViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
+    public SemesterGradesAdapter.ViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         this.context = viewGroup.getContext();
         View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.semester_card, viewGroup, false);
         return new ViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(final SemesterAdapter.ViewHolder viewHolder, final  int i) {
+    public void onBindViewHolder(final SemesterGradesAdapter.ViewHolder viewHolder, final  int i) {
 
         viewHolder.setIsRecyclable(false);
 
@@ -58,13 +58,15 @@ public class SemesterAdapter extends RecyclerView.Adapter<SemesterAdapter.ViewHo
         viewHolder.buttonLayout.setRotation(expandState.get(i) ? 180f : 0f);
 
         for (Data data : semesters.get(i).getData()) {
-            TextView myView = new TextView(context);
+            if (data.getTitle() != null && data.getGrade()!=null) {
+                TextView myView = new TextView(context);
 
-            myView.setText(String.format("%s                                                %s", data.getTitle(), data.getGrade()));
-            myView.setTextSize(15);
-            myView.setPadding(0,15,0,15);
-            myView.setGravity(Gravity.CENTER_HORIZONTAL);
-            viewHolder.expandableLayout.addView(myView);
+                myView.setText(String.format("%s                                            %s", data.getTitle(), data.getGrade()));
+                myView.setTextSize(15);
+                myView.setPadding(0,15,0,15);
+                myView.setGravity(Gravity.CENTER_HORIZONTAL);
+                viewHolder.expandableLayout.addView(myView);
+            }
         }
         viewHolder.buttonLayout.setOnClickListener(new View.OnClickListener() {
             @Override

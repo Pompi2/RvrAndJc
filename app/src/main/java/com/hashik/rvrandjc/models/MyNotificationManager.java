@@ -34,7 +34,7 @@ public class MyNotificationManager {
 
         NotificationCompat.Builder mBuilder =
                 new NotificationCompat.Builder(mCtx, Constants.CHANNEL_ID)
-                        .setSmallIcon(R.drawable.ic_applogov)
+                        .setSmallIcon(R.drawable.ic_app_logo)
                         .setDefaults(Notification.DEFAULT_SOUND)
                         .setContentTitle(title)
                         .setContentText(body);
