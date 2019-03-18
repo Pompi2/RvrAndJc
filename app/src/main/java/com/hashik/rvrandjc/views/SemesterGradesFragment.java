@@ -4,13 +4,20 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.hashik.rvrandjc.R;
+import com.hashik.rvrandjc.adapters.SemesterAdapter;
+import com.hashik.rvrandjc.models.GlobalApplication;
+import com.hashik.rvrandjc.models.JSONDataModels.Semester;
 import com.hashik.rvrandjc.models.RootFragmentManager;
+
+import java.util.Arrays;
 
 
 /**
@@ -30,7 +37,13 @@ public class SemesterGradesFragment extends Fragment {
                              Bundle savedInstanceState) {
         RootFragmentManager.getInstance().setCurrentFragment(2); // 2 is for SemesterGradesFragment
         View view = inflater.inflate(R.layout.fragment_semester_grades, container, false); // Inflate the layout for this fragment
+        RecyclerView recyclerView = view.findViewById(R.id.semester_rv);
+        SemesterAdapter semesterAdapter = new SemesterAdapter(Arrays.asList(GlobalApplication.getUserData().getSemester()));
 
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
+        recyclerView.setLayoutManager(layoutManager);
+//fetch data and on ExpandableRecyclerAdapter
+        recyclerView.setAdapter(semesterAdapter);
         return view;
     }
 
