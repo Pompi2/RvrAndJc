@@ -60,6 +60,12 @@ public class SemesterAdapter extends RecyclerView.Adapter<SemesterAdapter.ViewHo
                 onClickButton(viewHolder.expandableLayout, viewHolder.buttonLayout,  i);
             }
         });
+        viewHolder.completeCard.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                viewHolder.buttonLayout.performClick();
+            }
+        });
     }
 
     @Override
@@ -73,10 +79,11 @@ public class SemesterAdapter extends RecyclerView.Adapter<SemesterAdapter.ViewHo
         private ImageView ivOwner;
         public RelativeLayout buttonLayout;
         public LinearLayout expandableLayout;
+        public LinearLayout completeCard;
 
         public ViewHolder(View view) {
             super(view);
-
+            completeCard = (LinearLayout) view.findViewById(R.id.sem_card);
             tvName = (TextView)view.findViewById(R.id.title);
             tvOwnerLogin = (TextView)view.findViewById(R.id.textView_Owner);
             tvOwnerUrl = (TextView)view.findViewById(R.id.textView_OwnerUrl);
