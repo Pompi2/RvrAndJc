@@ -3,6 +3,7 @@ package com.hashik.rvrandjc.adapters;
 import android.animation.ObjectAnimator;
 import android.content.Context;
 import android.util.SparseBooleanArray;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +15,7 @@ import android.widget.TextView;
 
 
 import com.hashik.rvrandjc.R;
+import com.hashik.rvrandjc.models.JSONDataModels.Data;
 import com.hashik.rvrandjc.models.JSONDataModels.Semester;
 
 import java.util.List;
@@ -54,6 +56,16 @@ public class SemesterAdapter extends RecyclerView.Adapter<SemesterAdapter.ViewHo
         viewHolder.expandableLayout.setVisibility(isExpanded?View.VISIBLE:View.GONE);
 
         viewHolder.buttonLayout.setRotation(expandState.get(i) ? 180f : 0f);
+
+        for (Data data : semesters.get(i).getData()) {
+            TextView myView = new TextView(context);
+
+            myView.setText(String.format("%s                                                %s", data.getTitle(), data.getGrade()));
+            myView.setTextSize(15);
+            myView.setPadding(0,15,0,15);
+            myView.setGravity(Gravity.CENTER_HORIZONTAL);
+            viewHolder.expandableLayout.addView(myView);
+        }
         viewHolder.buttonLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(final View v) {
