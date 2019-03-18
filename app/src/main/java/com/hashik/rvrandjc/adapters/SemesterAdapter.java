@@ -85,8 +85,6 @@ public class SemesterAdapter extends RecyclerView.Adapter<SemesterAdapter.ViewHo
             super(view);
             completeCard = (LinearLayout) view.findViewById(R.id.sem_card);
             tvName = (TextView)view.findViewById(R.id.title);
-            tvOwnerLogin = (TextView)view.findViewById(R.id.textView_Owner);
-            tvOwnerUrl = (TextView)view.findViewById(R.id.textView_OwnerUrl);
 
             buttonLayout = (RelativeLayout) view.findViewById(R.id.button);
             expandableLayout = (LinearLayout) view.findViewById(R.id.expandableLayout);
@@ -111,7 +109,7 @@ public class SemesterAdapter extends RecyclerView.Adapter<SemesterAdapter.ViewHo
     //Code to rotate button
     private ObjectAnimator createRotateAnimator(final View target, final float from, final float to) {
         ObjectAnimator animator = ObjectAnimator.ofFloat(target, "rotation", from, to);
-        animator.setDuration(300);
+        animator.setDuration(500);
         animator.setInterpolator(new LinearInterpolator());
         return animator;
     }
