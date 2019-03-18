@@ -27,7 +27,9 @@ import androidx.fragment.app.FragmentTransaction;
 
 public class UserMainPageFragment extends Fragment {
     private Button signOut;
-
+    private TextView rolno;
+    private TextView gpa;
+    private TextView rank;
     public UserMainPageFragment() {
         // Required empty public constructor
     }
@@ -35,7 +37,7 @@ public class UserMainPageFragment extends Fragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (GlobalApplication.getUserData() != null) {
+        if (GlobalApplication.getUserData() == null) {
             SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(getActivity());
             Gson gson = new Gson();
             String json = sp.getString("userdata", null);
@@ -55,14 +57,9 @@ public class UserMainPageFragment extends Fragment {
         LinearLayout internalMarksLayout = userLayout.findViewById(R.id.internal_marks_label);
         LinearLayout attendanceReportLayout = userLayout.findViewById(R.id.attendance_report_label);
         LinearLayout webSiteOpen = userLayout.findViewById(R.id.open_site);
-        TextView rolno = userLayout.findViewById(R.id.roll_no);
-        TextView gpa = userLayout.findViewById(R.id.gpa);
-        TextView rank = userLayout.findViewById(R.id.rank);
-
-        gpa.setText(GlobalApplication.getUserData().getUser().getCgpa());
-        rank.setText(GlobalApplication.getUserData().getUser().getRank());
-        rolno.setText(GlobalApplication.getUserData().getUser().getNumber());
-
+        rolno = userLayout.findViewById(R.id.roll_no);
+        gpa = userLayout.findViewById(R.id.gpa);
+        rank = userLayout.findViewById(R.id.rank);
 
         //Click listeners
         signOut.setOnClickListener(new View.OnClickListener() {
@@ -127,6 +124,18 @@ public class UserMainPageFragment extends Fragment {
         });
 
         return userLayout;
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        if(GlobalApplication.getUserData().getUser() != null){
+            gpa.setText(GlobalApplication.getUserData().getUser().getCgpa());
+            rank.setText(GlobalApplication.getUserData().getUser().getRank());
+            rolno.setText(GlobalApplication.getUserData().getUser().getNumber());
+        }else{
+            signOut.performClick(); //Logout if the userdata object is null null may have caused due to clearing of cache or data
+        }
     }
 
     public void onBackPressed() {
