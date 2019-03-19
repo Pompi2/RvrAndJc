@@ -1,9 +1,15 @@
 package com.hashik.rvrandjc.models.JSONDataModels;
 
 public class JSONData {
-        private Attendancereport[] attendancereport;
+    private Attendancereport[] attendancereport;
 
-        private String time;
+    private String time;
+
+    private Internalmarks[] internalmarks;
+
+    private Semester[] semester;
+
+    private User user;
 
     public void setTime(String time) {
         this.time = time;
@@ -13,55 +19,40 @@ public class JSONData {
         return time;
     }
 
-    private Internalmarks[] internalmarks;
+    public Attendancereport[] getAttendancereport() {
+        return attendancereport;
+    }
 
-        private Semester[] semester;
+    public void setAttendancereport(Attendancereport[] attendancereport) {
+        this.attendancereport = attendancereport;
+    }
 
-        private User user;
+    public Internalmarks[] getInternalmarks() {
+        return internalmarks;
+    }
 
-        public Attendancereport[] getAttendancereport ()
-        {
-            return attendancereport;
-        }
+    public void setInternalmarks(Internalmarks[] internalmarks) {
+        this.internalmarks = internalmarks;
+    }
 
-        public void setAttendancereport (Attendancereport[] attendancereport)
-        {
-            this.attendancereport = attendancereport;
-        }
+    public Semester[] getSemester() {
+        return semester;
+    }
 
-        public Internalmarks[] getInternalmarks ()
-        {
-            return internalmarks;
-        }
+    public void setSemester(Semester[] semester) {
+        this.semester = semester;
+    }
 
-        public void setInternalmarks (Internalmarks[] internalmarks)
-        {
-            this.internalmarks = internalmarks;
-        }
+    public User getUser() {
+        return user;
+    }
 
-        public Semester[] getSemester ()
-        {
-            return semester;
-        }
+    public void setUser(User user) {
+        this.user = user;
+    }
 
-        public void setSemester (Semester[] semester)
-        {
-            this.semester = semester;
-        }
-
-        public User getUser ()
-        {
-            return user;
-        }
-
-        public void setUser (User user)
-        {
-            this.user = user;
-        }
-
-        @Override
-        public String toString()
-        {
-            return "ClassPojo [attendancereport = "+attendancereport+", internalmarks = "+internalmarks+", semester = "+semester+", user = "+user+"]";
-        }
+    @Override
+    public String toString() {
+        return "ClassPojo [attendancereport = " + attendancereport + ", internalmarks = " + internalmarks + ", semester = " + semester + ", user = " + user + "]";
+    }
 }
