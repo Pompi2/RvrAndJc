@@ -5,4 +5,9 @@
     <color name="colorAccent">#05E2CD</color>
     <color name="edittext_hint_color">#fbbb</color>
     <color name="nav_bar">#CBCBCB</color>
+
+    <!--Error dialog-->
+    <color name="invalid_creds_dialog">#ff3943</color>
+    <color name="invalid_creds_dialog2">#801b20</color>
+
 </resources>
