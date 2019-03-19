@@ -2,6 +2,8 @@ package com.hashik.rvrandjc.adapters;
 
 import android.animation.ObjectAnimator;
 import android.content.Context;
+import android.graphics.Color;
+import android.graphics.Typeface;
 import android.util.SparseBooleanArray;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -64,6 +66,13 @@ public class SemesterGradesAdapter extends RecyclerView.Adapter<SemesterGradesAd
                 myView.setText(String.format("%s                                            %s", data.getTitle(), data.getGrade()));
                 myView.setTextSize(15);
                 myView.setPadding(0,15,0,15);
+                if(data.getGrade().equals("F")){
+                    myView.setTextColor(Color.RED);
+                }
+                if(data.getTitle().equals("CGPA") || data.getTitle().equals("SGPA") || data.getTitle().equals("Rank")){
+                    myView.setTypeface(Typeface.DEFAULT_BOLD);
+                    myView.setText(String.format("  %s                                          %s", data.getTitle(), data.getGrade()));
+                }
                 myView.setGravity(Gravity.CENTER_HORIZONTAL);
                 viewHolder.expandableLayout.addView(myView);
             }
