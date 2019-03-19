@@ -3,7 +3,17 @@ package com.hashik.rvrandjc.models.JSONDataModels;
 public class JSONData {
         private Attendancereport[] attendancereport;
 
-        private Internalmarks[] internalmarks;
+        private String time;
+
+    public void setTime(String time) {
+        this.time = time;
+    }
+
+    public String getTime() {
+        return time;
+    }
+
+    private Internalmarks[] internalmarks;
 
         private Semester[] semester;
 

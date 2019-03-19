@@ -15,7 +15,7 @@ tools:context=".views.InternalMarksFragment">
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Sun 05 2016, 12:55PM"
+        android:id="@+id/lastupdate"
         android:textColor="@android:color/white"
         android:textStyle="bold"
         android:gravity="center"/>

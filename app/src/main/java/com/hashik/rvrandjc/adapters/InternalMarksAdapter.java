@@ -85,7 +85,7 @@ public class InternalMarksAdapter extends RecyclerView.Adapter<InternalMarksAdap
     private void addATextView(ViewHolder viewHolder, Subjects subject) {
         LinearLayout row = new LinearLayout(context);
         LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
-        params.setMargins(200,0,0,0);
+        params.setMargins(150,0,0,0);
         row.setLayoutParams(params);
         row.setOrientation(LinearLayout.HORIZONTAL);
         TextView sub = new TextView(context);
@@ -102,8 +102,9 @@ public class InternalMarksAdapter extends RecyclerView.Adapter<InternalMarksAdap
         sub.setLayoutParams(param);
         grade.setLayoutParams(param);
 
+        sub.setTypeface(Typeface.DEFAULT_BOLD);
         sub.setPadding(0,10,0,15);
-        grade.setPadding(0,10,0,10);
+        grade.setPadding(30,10,0,10);
 
         sub.setText(subject.getCode());
         grade.setText(subject.getMarks());

@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.hashik.rvrandjc.R;
 import com.hashik.rvrandjc.adapters.InternalMarksAdapter;
@@ -42,6 +43,10 @@ public class InternalMarksFragment extends Fragment {
         recyclerView.setLayoutManager(layoutManager);
         //fetch data and on ExpandableRecyclerAdapter
         recyclerView.setAdapter(internalMarksAdapter);
+        if(GlobalApplication.getUserData().getTime() != null){
+            TextView lastupdate = view.findViewById(R.id.lastupdate);//Setting lastupdate
+            lastupdate.setText(String.format("%s %s", getString(R.string.last_update), GlobalApplication.getUserData().getTime()));
+        }
         return view;
     }
 
