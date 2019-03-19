@@ -20,6 +20,9 @@ import com.hashik.rvrandjc.R;
 import com.hashik.rvrandjc.models.JSONDataModels.Data;
 import com.hashik.rvrandjc.models.JSONDataModels.Internalmarks;
 import com.hashik.rvrandjc.models.JSONDataModels.Semester;
+import com.hashik.rvrandjc.models.JSONDataModels.Subjects;
+
+import org.w3c.dom.Text;
 
 import java.util.List;
 
@@ -59,19 +62,12 @@ public class InternalMarksAdapter extends RecyclerView.Adapter<InternalMarksAdap
         viewHolder.expandableLayout.setVisibility(isExpanded?View.VISIBLE:View.GONE);
 
         viewHolder.buttonLayout.setRotation(expandState.get(i) ? 180f : 0f);
-
-        /*for (Data data : marksList.get(i)) {
-            if (data.getTitle() != null && data.getGrade()!=null) {
+        for (Subjects subject : marksList.get(i).getSubjects()) {
+            if (subject.getCode() != null) {
                 TextView textView = new TextView(context);
-
-                textView.setText(String.format("%s                                            %s", data.getTitle(), data.getGrade()));
-                textView.setTextSize(15);
-                textView.setPadding(0,15,0,15);
-
-                textView.setGravity(Gravity.CENTER_HORIZONTAL);
-                viewHolder.expandableLayout.addView(textView);
+                addATextView(viewHolder,subject);
             }
-        }*/
+        }
         viewHolder.buttonLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(final View v) {
@@ -84,6 +80,36 @@ public class InternalMarksAdapter extends RecyclerView.Adapter<InternalMarksAdap
                 viewHolder.buttonLayout.performClick();
             }
         });
+    }
+
+    private void addATextView(ViewHolder viewHolder, Subjects subject) {
+        LinearLayout row = new LinearLayout(context);
+        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+        params.setMargins(200,0,0,0);
+        row.setLayoutParams(params);
+        row.setOrientation(LinearLayout.HORIZONTAL);
+        TextView sub = new TextView(context);
+        TextView grade = new TextView(context);
+
+        sub.setTextSize(15);
+        grade.setTextSize(15);
+
+        LinearLayout.LayoutParams param = new LinearLayout.LayoutParams(
+                ViewGroup.LayoutParams.MATCH_PARENT,
+                ViewGroup.LayoutParams.MATCH_PARENT,
+                (float)1.0
+        );
+        sub.setLayoutParams(param);
+        grade.setLayoutParams(param);
+
+        sub.setPadding(0,10,0,15);
+        grade.setPadding(0,10,0,10);
+
+        sub.setText(subject.getCode());
+        grade.setText(subject.getMarks());
+        row.addView(sub);
+        row.addView(grade);
+        viewHolder.expandableLayout.addView(row);
     }
 
     @Override
