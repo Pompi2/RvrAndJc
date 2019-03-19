@@ -1,6 +1,8 @@
 package com.hashik.rvrandjc.views;
 
 import android.content.SharedPreferences;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.util.Log;
@@ -9,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import com.google.gson.Gson;
 import com.hashik.rvrandjc.R;
@@ -16,6 +19,10 @@ import com.hashik.rvrandjc.models.GlobalApplication;
 import com.hashik.rvrandjc.models.RootFragmentManager;
 import com.hashik.rvrandjc.viewmodels.SignInViewModel;
 
+import java.net.InetAddress;
+import java.util.Objects;
+
+import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
@@ -62,8 +69,16 @@ public class SignInFragment extends Fragment {
                         setSignInFlag();
                         goToUserMainPageFragment();
                     } else {
-
                         //Show invalid credentials dialog
+                        if (signInViewModel.getErrorCode() == 401) {
+                            showErrorDialog("Invalid credentials");
+                        }else{
+                            if (isInternetAvailable()) {
+                                showErrorDialog("Servers are down please try again later");
+                            }else{
+                                showErrorDialog("Please connect to internet and try again");
+                            }
+                        }
                     }
                 }
             }
@@ -117,5 +132,36 @@ public class SignInFragment extends Fragment {
         transaction.setCustomAnimations(R.anim.frag_entry_slide, R.anim.frag_exit_slide);
         transaction.replace(R.id.root_frame, fragment);
         transaction.commit();
+    }
+
+    private void showErrorDialog(String error) {
+        AlertDialog.Builder mBuilder = new AlertDialog.Builder(getActivity());
+        View mView = getLayoutInflater().inflate(R.layout.error_dialog, null);
+        final TextView errorText = mView.findViewById(R.id.the_error);
+        errorText.setText(error);
+        mBuilder.setView(mView);
+        final AlertDialog dialog = mBuilder.create();
+        Objects.requireNonNull(dialog.getWindow()).setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        dialog.show();
+
+        Button tryAgainButton = mView.findViewById(R.id.try_again);
+
+        tryAgainButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
+    }
+
+    public boolean isInternetAvailable() {
+        try {
+            InetAddress ipAddr = InetAddress.getByName("google.com");
+            //You can replace it with your name
+            return !ipAddr.equals("");
+
+        } catch (Exception e) {
+            return false;
+        }
     }
 }

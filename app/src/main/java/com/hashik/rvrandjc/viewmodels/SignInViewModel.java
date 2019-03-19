@@ -19,6 +19,11 @@ import static androidx.constraintlayout.widget.Constraints.TAG;
 public class SignInViewModel extends ViewModel {
     private MutableLiveData<Boolean> validCreds;
     private MutableLiveData<Boolean> processing;
+    private int errorCode;
+
+    public int getErrorCode() {
+        return errorCode;
+    }
 
     public void validateCredentials(String username, String pass){
 
@@ -28,12 +33,13 @@ public class SignInViewModel extends ViewModel {
         call.enqueue(new Callback<JSONData>() {
             @Override
             public void onResponse(Call<JSONData> call, Response<JSONData> response) {
-                if(response.isSuccessful()){
+                if(response.isSuccessful() && ! (response.code() == 401)){
                     Log.d(TAG, "onResponse: Got the response!"+response.body().getUser().getNumber());
                     GlobalApplication.setUserData(response.body());
                     validCreds.setValue(true);
                     processing.setValue(false);
                 }else{
+                    errorCode = response.code();
                     onFailure(call, new Exception());
                 }
             }
