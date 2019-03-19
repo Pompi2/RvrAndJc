@@ -18,6 +18,7 @@ import android.widget.TextView;
 
 import com.hashik.rvrandjc.R;
 import com.hashik.rvrandjc.models.JSONDataModels.Data;
+import com.hashik.rvrandjc.models.JSONDataModels.Internalmarks;
 import com.hashik.rvrandjc.models.JSONDataModels.Semester;
 
 import java.util.List;
@@ -25,14 +26,14 @@ import java.util.List;
 import androidx.recyclerview.widget.RecyclerView;
 
 
-public class SemesterGradesAdapter extends RecyclerView.Adapter<SemesterGradesAdapter.ViewHolder> {
+public class InternalMarksAdapter extends RecyclerView.Adapter<InternalMarksAdapter.ViewHolder> {
 
-    private List<Semester> semesters;
+    private List<Internalmarks> marksList;
     private SparseBooleanArray expandState = new SparseBooleanArray();
     private Context context;
 
-    public SemesterGradesAdapter(List<Semester> repos) {
-        this.semesters = repos;
+    public InternalMarksAdapter(List<Internalmarks> repos) {
+        this.marksList = repos;
         //set initial expanded state to false
         for (int i = 0; i < repos.size(); i++) {
             expandState.append(i, false);
@@ -40,18 +41,18 @@ public class SemesterGradesAdapter extends RecyclerView.Adapter<SemesterGradesAd
     }
 
     @Override
-    public SemesterGradesAdapter.ViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
+    public InternalMarksAdapter.ViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         this.context = viewGroup.getContext();
         View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.adapter_card, viewGroup, false);
         return new ViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(final SemesterGradesAdapter.ViewHolder viewHolder, final  int i) {
+    public void onBindViewHolder(final InternalMarksAdapter.ViewHolder viewHolder, final  int i) {
 
         viewHolder.setIsRecyclable(false);
 
-        viewHolder.tvName.setText(semesters.get(i).getTitle());
+        viewHolder.tvName.setText(marksList.get(i).getTitle());
 
         //check if view is expanded
         final boolean isExpanded = expandState.get(i);
@@ -59,24 +60,18 @@ public class SemesterGradesAdapter extends RecyclerView.Adapter<SemesterGradesAd
 
         viewHolder.buttonLayout.setRotation(expandState.get(i) ? 180f : 0f);
 
-        for (Data data : semesters.get(i).getData()) {
+        /*for (Data data : marksList.get(i)) {
             if (data.getTitle() != null && data.getGrade()!=null) {
                 TextView textView = new TextView(context);
 
                 textView.setText(String.format("%s                                            %s", data.getTitle(), data.getGrade()));
                 textView.setTextSize(15);
                 textView.setPadding(0,15,0,15);
-                if(data.getGrade().equals("F")){
-                    textView.setTextColor(Color.RED);
-                }
-                if(data.getTitle().equals("CGPA") || data.getTitle().equals("SGPA") || data.getTitle().equals("Rank")){
-                    textView.setTypeface(Typeface.DEFAULT_BOLD);
-                    textView.setText(String.format("  %s                                          %s", data.getTitle(), data.getGrade()));
-                }
+
                 textView.setGravity(Gravity.CENTER_HORIZONTAL);
                 viewHolder.expandableLayout.addView(textView);
             }
-        }
+        }*/
         viewHolder.buttonLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(final View v) {
@@ -93,7 +88,7 @@ public class SemesterGradesAdapter extends RecyclerView.Adapter<SemesterGradesAd
 
     @Override
     public int getItemCount() {
-        return semesters.size();
+        return marksList.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{

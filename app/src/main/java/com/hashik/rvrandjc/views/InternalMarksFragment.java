@@ -5,13 +5,19 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.hashik.rvrandjc.R;
+import com.hashik.rvrandjc.adapters.InternalMarksAdapter;
+import com.hashik.rvrandjc.models.GlobalApplication;
 import com.hashik.rvrandjc.models.RootFragmentManager;
+
+import java.util.Arrays;
 
 /**
  * Fragment to display internal marks
@@ -29,7 +35,13 @@ public class InternalMarksFragment extends Fragment {
                              Bundle savedInstanceState) {
         RootFragmentManager.getInstance().setCurrentFragment(3); // 3 is for InternalMarksFragment
         View view = inflater.inflate(R.layout.fragment_internal_marks, container, false); // Inflate the layout for this fragment
+        RecyclerView recyclerView = view.findViewById(R.id.internal_marks_rv);
+        InternalMarksAdapter internalMarksAdapter = new InternalMarksAdapter(Arrays.asList(GlobalApplication.getUserData().getInternalmarks()));
 
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
+        recyclerView.setLayoutManager(layoutManager);
+        //fetch data and on ExpandableRecyclerAdapter
+        recyclerView.setAdapter(internalMarksAdapter);
         return view;
     }
 
