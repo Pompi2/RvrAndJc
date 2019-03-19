@@ -24,7 +24,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity{
     private static final String TAG = "MainActivity";
     private AHBottomNavigation bottomNavigation;
     private ViewPager mainViewPager;
@@ -159,5 +159,23 @@ public class MainActivity extends AppCompatActivity {
 
         //Settings a notification
         bottomNavigation.setNotification("1",1);
+    }
+
+    public void diableBottomBarButtons() {
+        if(bottomNavigation != null){
+            bottomNavigation.disableItemAtPosition(0);
+            bottomNavigation.disableItemAtPosition(1);
+            bottomNavigation.disableItemAtPosition(2);
+            bottomNavigation.disableItemAtPosition(3);
+        }
+    }
+
+    public void enableBottomBarButtons() {
+        if (bottomNavigation != null) {
+            bottomNavigation.enableItemAtPosition(0);
+            bottomNavigation.enableItemAtPosition(1);
+            bottomNavigation.enableItemAtPosition(2);
+            bottomNavigation.enableItemAtPosition(3);
+        }
     }
 }

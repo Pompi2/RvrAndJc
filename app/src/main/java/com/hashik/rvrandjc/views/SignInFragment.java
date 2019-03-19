@@ -24,6 +24,7 @@ import com.hashik.rvrandjc.R;
 import com.hashik.rvrandjc.models.GlobalApplication;
 import com.hashik.rvrandjc.models.RootFragmentManager;
 import com.hashik.rvrandjc.viewmodels.SignInViewModel;
+import com.squareup.haha.perflib.Main;
 
 
 public class SignInFragment extends Fragment {
@@ -54,6 +55,9 @@ public class SignInFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 signInViewModel.validateCredentials(username.getText().toString(), password.getText().toString());
+                //Disabling all buttons and clicks including bottom navigation
+                signInButton.setEnabled(false);
+                ((MainActivity)getActivity()).diableBottomBarButtons();
             }
         });
 
@@ -64,7 +68,11 @@ public class SignInFragment extends Fragment {
                     if (aBoolean) {
                         setSignInFlag();
                         goToUserMainPageFragment();
+                        ((MainActivity)getActivity()).enableBottomBarButtons();//Enabling the buttons
                     } else {
+                        //Enabling the buttons
+                        signInButton.setEnabled(false);
+                        ((MainActivity)getActivity()).enableBottomBarButtons();
                         //Show invalid credentials dialog
                     }
             }
@@ -102,6 +110,7 @@ public class SignInFragment extends Fragment {
         signInViewModel.getProcessing().removeObservers(this);
         signInViewModel.setValidCreds();
         signInViewModel.setProcessing();
+
         super.onDestroy();
     }
 
