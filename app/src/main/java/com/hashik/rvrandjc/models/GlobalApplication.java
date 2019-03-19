@@ -9,7 +9,7 @@ import com.hashik.rvrandjc.models.JSONDataModels.JSONData;
 import com.squareup.leakcanary.LeakCanary;
 
 public class GlobalApplication extends Application {
-    private static final String BASEURL = "https://pastebin.com";
+    private static final String BASEURL = "https://raw.githubusercontent.com";
     private static JSONData userData;
 
 

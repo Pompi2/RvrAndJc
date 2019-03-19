@@ -10,7 +10,7 @@ import retrofit2.http.Headers;
 import retrofit2.http.POST;
 
 public interface LoginService {
-    @POST("/raw/smkMA2by")
+    @GET("/Hashik-Donthineni/TemporaryJSONHosting/master/RvrJSON.json")
     @Headers("Content-type: application/json")
     Call<JSONData> initiateLogin();
 }

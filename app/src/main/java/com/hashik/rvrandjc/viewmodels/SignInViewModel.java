@@ -30,10 +30,14 @@ public class SignInViewModel extends ViewModel {
         call.enqueue(new Callback<JSONData>() {
             @Override
             public void onResponse(Call<JSONData> call, Response<JSONData> response) {
-                Log.d(TAG, "onResponse: Got the response!"+response.body().getUser().getNumber());
-                GlobalApplication.setUserData(response.body());
-                validCreds.setValue(true);
-                processing.setValue(false);
+                if(response.isSuccessful()){
+                    Log.d(TAG, "onResponse: Got the response!"+response.body().getUser().getNumber());
+                    GlobalApplication.setUserData(response.body());
+                    validCreds.setValue(true);
+                    processing.setValue(false);
+                }else{
+                    onFailure(call, new Exception());
+                }
             }
 
             @Override
