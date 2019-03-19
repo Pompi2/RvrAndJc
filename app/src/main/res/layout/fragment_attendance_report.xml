@@ -22,19 +22,31 @@
             android:textColor="@android:color/white"
             android:textStyle="bold" />
     </LinearLayout>
-    <include layout="@layout/adapter_card"
+
+    <include
         android:id="@+id/overview_card"
-        android:layout_height="wrap_content"
+        layout="@layout/adapter_card"
         android:layout_width="match_parent"
-        android:layout_margin="5dp"
-        android:layout_below="@id/update_time"/>
-    <androidx.recyclerview.widget.RecyclerView
+        android:layout_height="wrap_content"
+        android:layout_below="@id/update_time"
+        android:layout_margin="5dp" />
+
+    <TextView
+        android:id="@+id/attendance_report_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_below="@id/overview_card"
+        android:text="@string/absent_data"
+        android:layout_centerHorizontal="true"
+        />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/attendance_rv"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/attendance_rv"
-        android:scrollbars="vertical"
+        android:layout_below="@id/attendance_report_label"
+        android:fadeScrollbars="true"
         android:scrollbarStyle="insideInset"
-        android:fadeScrollbars="true"/>
+        android:scrollbars="vertical" />
 
 </RelativeLayout>

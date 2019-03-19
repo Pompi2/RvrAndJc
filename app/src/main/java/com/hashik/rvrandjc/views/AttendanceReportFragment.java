@@ -11,6 +11,7 @@ import android.view.animation.LinearInterpolator;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.hashik.rvrandjc.R;
 import com.hashik.rvrandjc.adapters.AttendanceReportAdapter;
@@ -22,6 +23,7 @@ import com.hashik.rvrandjc.models.RootFragmentManager;
 
 import java.util.Arrays;
 
+import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
@@ -33,7 +35,8 @@ import androidx.recyclerview.widget.RecyclerView;
  * Fragment to show attendnence report
  */
 public class AttendanceReportFragment extends Fragment {
-
+    LinearLayout expandableLayout;
+    RelativeLayout buttonLayout;
 
     /**
      * Instantiates a new Attendance report fragment.
@@ -104,6 +107,7 @@ public class AttendanceReportFragment extends Fragment {
                 addATextView(expandableLayout, overview);
             }
         }
+        expandableLayout.setVisibility(View.GONE);
     }
 
     //Code to rotate button

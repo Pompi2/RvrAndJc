@@ -14,11 +14,14 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.hashik.rvrandjc.R;
+import com.hashik.rvrandjc.models.GlobalApplication;
 import com.hashik.rvrandjc.models.JSONDataModels.Attendance;
 import com.hashik.rvrandjc.models.JSONDataModels.Attendancereport;
+import com.hashik.rvrandjc.models.JSONDataModels.Overview;
 
 import java.util.List;
 
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 
@@ -45,7 +48,6 @@ public class AttendanceReportAdapter extends RecyclerView.Adapter<AttendanceRepo
 
     @Override
     public void onBindViewHolder(final AttendanceReportAdapter.ViewHolder viewHolder, final int i) {
-
         viewHolder.setIsRecyclable(false);
 
         viewHolder.tvName.setText(absentList.get(i).getDate());
