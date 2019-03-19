@@ -105,7 +105,7 @@ public class SemesterGradesAdapter extends RecyclerView.Adapter<SemesterGradesAd
 
         public ViewHolder(View view) {
             super(view);
-            completeCard = (LinearLayout) view.findViewById(R.id.sem_card);
+            completeCard = (LinearLayout) view.findViewById(R.id.one_card);
             tvName = (TextView) view.findViewById(R.id.title);
 
             buttonLayout = (RelativeLayout) view.findViewById(R.id.button);

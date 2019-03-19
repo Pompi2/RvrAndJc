@@ -24,7 +24,7 @@ public class User
 
     private String cgpa;
 
-    private Attendance[] attendance;
+    private Overview[] overview;
 
     public String getNumber ()
     {
@@ -36,19 +36,19 @@ public class User
         this.number = number;
     }
 
-    public Attendance[] getAttendance ()
+    public Overview[] getOverview()
     {
-        return attendance;
+        return overview;
     }
 
-    public void setAttendance (Attendance[] attendance)
+    public void setOverview(Overview[] overview)
     {
-        this.attendance = attendance;
+        this.overview = overview;
     }
 
     @Override
     public String toString()
     {
-        return "ClassPojo [number = "+number+", attendance = "+attendance+"]";
+        return "ClassPojo [number = "+number+", overview = "+overview+"]";
     }
 }

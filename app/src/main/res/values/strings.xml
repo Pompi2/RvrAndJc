@@ -19,6 +19,7 @@
     <string name="point3">⦿ You need not login to receive notifications</string>
     <string name="point4">⦿ Change notification preferences in settings</string>
     <string name="last_update">Last Server Data Update:</string>
+    <string name="attendance_overview">Attendance Overview</string>
 
 
     <string-array name="not_pref">

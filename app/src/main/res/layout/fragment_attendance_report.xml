@@ -26,6 +26,7 @@
         android:id="@+id/overview_card"
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
+        android:layout_margin="5dp"
         android:layout_below="@id/update_time"/>
     <androidx.recyclerview.widget.RecyclerView
         android:layout_below="@id/overview_card"
