@@ -109,7 +109,7 @@ public class AttendanceReportAdapter extends RecyclerView.Adapter<AttendanceRepo
 
     @Override
     public int getItemCount() {
-        return absentList.size() + 1;
+        return absentList.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
