@@ -25,7 +25,7 @@ public class SignInViewModel extends ViewModel {
         return errorCode;
     }
 
-    public void validateCredentials(String username, String pass){
+    public void validateCredentials(final String username, final String pass){
 
         final LoginService loginService = ServiceGenerator.createService(LoginService.class);
         Call<JSONData> call = loginService.initiateLogin();
@@ -36,8 +36,13 @@ public class SignInViewModel extends ViewModel {
                 if(response.isSuccessful() && ! (response.code() == 401)){
                     Log.d(TAG, "onResponse: Got the response!"+response.body().getUser().getNumber());
                     GlobalApplication.setUserData(response.body());
-                    validCreds.setValue(true);
                     processing.setValue(false);
+                    if (!(username.equalsIgnoreCase("hashik") && pass.equals("123"))) {
+                        errorCode = 401;
+                        onFailure(call, new Exception());
+                    }else{
+                        validCreds.setValue(true);
+                    }
                 }else{
                     errorCode = response.code();
                     onFailure(call, new Exception());
