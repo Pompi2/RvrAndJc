@@ -47,7 +47,7 @@ public class SemesterGradesAdapter extends RecyclerView.Adapter<SemesterGradesAd
     }
 
     @Override
-    public void onBindViewHolder(final SemesterGradesAdapter.ViewHolder viewHolder, final  int i) {
+    public void onBindViewHolder(final SemesterGradesAdapter.ViewHolder viewHolder, final int i) {
 
         viewHolder.setIsRecyclable(false);
 
@@ -55,21 +55,21 @@ public class SemesterGradesAdapter extends RecyclerView.Adapter<SemesterGradesAd
 
         //check if view is expanded
         final boolean isExpanded = expandState.get(i);
-        viewHolder.expandableLayout.setVisibility(isExpanded?View.VISIBLE:View.GONE);
+        viewHolder.expandableLayout.setVisibility(isExpanded ? View.VISIBLE : View.GONE);
 
         viewHolder.buttonLayout.setRotation(expandState.get(i) ? 180f : 0f);
 
         for (Data data : semesters.get(i).getData()) {
-            if (data.getTitle() != null && data.getGrade()!=null) {
+            if (data.getTitle() != null && data.getGrade() != null) {
                 TextView textView = new TextView(context);
 
                 textView.setText(String.format("%s                                            %s", data.getTitle(), data.getGrade()));
                 textView.setTextSize(15);
-                textView.setPadding(0,15,0,15);
-                if(data.getGrade().equals("F")){
+                textView.setPadding(0, 15, 0, 15);
+                if (data.getGrade().equals("F")) {
                     textView.setTextColor(Color.RED);
                 }
-                if(data.getTitle().equals("CGPA") || data.getTitle().equals("SGPA") || data.getTitle().equals("Rank")){
+                if (data.getTitle().equals("CGPA") || data.getTitle().equals("SGPA") || data.getTitle().equals("Rank")) {
                     textView.setTypeface(Typeface.DEFAULT_BOLD);
                     textView.setText(String.format("  %s                                          %s", data.getTitle(), data.getGrade()));
                 }
@@ -80,7 +80,7 @@ public class SemesterGradesAdapter extends RecyclerView.Adapter<SemesterGradesAd
         viewHolder.buttonLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(final View v) {
-                onClickButton(viewHolder.expandableLayout, viewHolder.buttonLayout,  i);
+                onClickButton(viewHolder.expandableLayout, viewHolder.buttonLayout, i);
             }
         });
         viewHolder.completeCard.setOnClickListener(new View.OnClickListener() {
@@ -96,9 +96,9 @@ public class SemesterGradesAdapter extends RecyclerView.Adapter<SemesterGradesAd
         return semesters.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder{
+    public class ViewHolder extends RecyclerView.ViewHolder {
 
-        private TextView tvName,tvOwnerLogin, tvOwnerUrl;
+        private TextView tvName, tvOwnerLogin, tvOwnerUrl;
         private ImageView ivOwner;
         public RelativeLayout buttonLayout;
         public LinearLayout expandableLayout;
@@ -107,22 +107,22 @@ public class SemesterGradesAdapter extends RecyclerView.Adapter<SemesterGradesAd
         public ViewHolder(View view) {
             super(view);
             completeCard = (LinearLayout) view.findViewById(R.id.sem_card);
-            tvName = (TextView)view.findViewById(R.id.title);
+            tvName = (TextView) view.findViewById(R.id.title);
 
             buttonLayout = (RelativeLayout) view.findViewById(R.id.button);
             expandableLayout = (LinearLayout) view.findViewById(R.id.expandableLayout);
         }
     }
 
-    private void onClickButton(final LinearLayout expandableLayout, final RelativeLayout buttonLayout, final  int i) {
+    private void onClickButton(final LinearLayout expandableLayout, final RelativeLayout buttonLayout, final int i) {
 
         //Simply set View to Gone if not expanded
         //Not necessary but I put simple rotation on button layout
-        if (expandableLayout.getVisibility() == View.VISIBLE){
+        if (expandableLayout.getVisibility() == View.VISIBLE) {
             createRotateAnimator(buttonLayout, 180f, 0f).start();
             expandableLayout.setVisibility(View.GONE);
             expandState.put(i, false);
-        }else{
+        } else {
             createRotateAnimator(buttonLayout, 0f, 180f).start();
             expandableLayout.setVisibility(View.VISIBLE);
             expandState.put(i, true);

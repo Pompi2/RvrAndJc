@@ -20,12 +20,17 @@ public class MainFragmentAdapter extends FragmentPagerAdapter {
 
     @Override
     public Fragment getItem(int position) {
-        switch (position){
-            case 0: return new RootHomeFragment();
-            case 1: return new NotificationFragment();
-            case 2: return new SettingsFragment();
-            case 3: return new AboutFragment();
-            default: return null;
+        switch (position) {
+            case 0:
+                return new RootHomeFragment();
+            case 1:
+                return new NotificationFragment();
+            case 2:
+                return new SettingsFragment();
+            case 3:
+                return new AboutFragment();
+            default:
+                return null;
         }
     }
 

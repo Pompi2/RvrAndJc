@@ -1,33 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-xmlns:tools="http://schemas.android.com/tools"
-android:layout_width="match_parent"
-android:layout_height="match_parent"
-tools:context=".views.InternalMarksFragment">
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="25dp"
-    android:background="@color/colorAccent"
-    android:orientation="horizontal"
-    android:id="@+id/update_time"
-    android:padding="5dp"
-    android:layout_marginBottom="5dp">
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/lastupdate"
-        android:textColor="@android:color/white"
-        android:textStyle="bold"
-        android:gravity="center"/>
-</LinearLayout>
-<androidx.recyclerview.widget.RecyclerView
-    android:layout_below="@id/update_time"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginTop="2.5dp"
-    android:id="@+id/internal_marks_rv"
-    android:scrollbars="vertical"
-    android:scrollbarStyle="insideInset"
-    android:fadeScrollbars="true" />
+    tools:context=".views.InternalMarksFragment">
+
+    <LinearLayout
+        android:id="@+id/update_time"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:background="@color/colorAccent"
+        android:orientation="horizontal"
+        android:padding="3dp">
+
+        <TextView
+            android:id="@+id/lastupdate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="@android:color/white"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/internal_marks_rv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/update_time"
+        android:layout_marginTop="2.5dp"
+        android:fadeScrollbars="true"
+        android:scrollbarStyle="insideInset"
+        android:scrollbars="vertical" />
 
 </RelativeLayout>

@@ -51,7 +51,7 @@ public class InternalMarksAdapter extends RecyclerView.Adapter<InternalMarksAdap
     }
 
     @Override
-    public void onBindViewHolder(final InternalMarksAdapter.ViewHolder viewHolder, final  int i) {
+    public void onBindViewHolder(final InternalMarksAdapter.ViewHolder viewHolder, final int i) {
 
         viewHolder.setIsRecyclable(false);
 
@@ -59,19 +59,19 @@ public class InternalMarksAdapter extends RecyclerView.Adapter<InternalMarksAdap
 
         //check if view is expanded
         final boolean isExpanded = expandState.get(i);
-        viewHolder.expandableLayout.setVisibility(isExpanded?View.VISIBLE:View.GONE);
+        viewHolder.expandableLayout.setVisibility(isExpanded ? View.VISIBLE : View.GONE);
 
         viewHolder.buttonLayout.setRotation(expandState.get(i) ? 180f : 0f);
         for (Subjects subject : marksList.get(i).getSubjects()) {
             if (subject.getCode() != null) {
                 TextView textView = new TextView(context);
-                addATextView(viewHolder,subject);
+                addATextView(viewHolder, subject);
             }
         }
         viewHolder.buttonLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(final View v) {
-                onClickButton(viewHolder.expandableLayout, viewHolder.buttonLayout,  i);
+                onClickButton(viewHolder.expandableLayout, viewHolder.buttonLayout, i);
             }
         });
         viewHolder.completeCard.setOnClickListener(new View.OnClickListener() {
@@ -85,7 +85,7 @@ public class InternalMarksAdapter extends RecyclerView.Adapter<InternalMarksAdap
     private void addATextView(ViewHolder viewHolder, Subjects subject) {
         LinearLayout row = new LinearLayout(context);
         LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
-        params.setMargins(150,0,0,0);
+        params.setMargins(150, 0, 0, 0);
         row.setLayoutParams(params);
         row.setOrientation(LinearLayout.HORIZONTAL);
         TextView sub = new TextView(context);
@@ -97,14 +97,14 @@ public class InternalMarksAdapter extends RecyclerView.Adapter<InternalMarksAdap
         LinearLayout.LayoutParams param = new LinearLayout.LayoutParams(
                 ViewGroup.LayoutParams.MATCH_PARENT,
                 ViewGroup.LayoutParams.MATCH_PARENT,
-                (float)1.0
+                (float) 1.0
         );
         sub.setLayoutParams(param);
         grade.setLayoutParams(param);
 
         sub.setTypeface(Typeface.DEFAULT_BOLD);
-        sub.setPadding(0,10,0,15);
-        grade.setPadding(30,10,0,10);
+        sub.setPadding(0, 10, 0, 15);
+        grade.setPadding(30, 10, 0, 10);
 
         sub.setText(subject.getCode());
         grade.setText(subject.getMarks());
@@ -118,9 +118,9 @@ public class InternalMarksAdapter extends RecyclerView.Adapter<InternalMarksAdap
         return marksList.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder{
+    public class ViewHolder extends RecyclerView.ViewHolder {
 
-        private TextView tvName,tvOwnerLogin, tvOwnerUrl;
+        private TextView tvName, tvOwnerLogin, tvOwnerUrl;
         private ImageView ivOwner;
         public RelativeLayout buttonLayout;
         public LinearLayout expandableLayout;
@@ -129,22 +129,22 @@ public class InternalMarksAdapter extends RecyclerView.Adapter<InternalMarksAdap
         public ViewHolder(View view) {
             super(view);
             completeCard = (LinearLayout) view.findViewById(R.id.sem_card);
-            tvName = (TextView)view.findViewById(R.id.title);
+            tvName = (TextView) view.findViewById(R.id.title);
 
             buttonLayout = (RelativeLayout) view.findViewById(R.id.button);
             expandableLayout = (LinearLayout) view.findViewById(R.id.expandableLayout);
         }
     }
 
-    private void onClickButton(final LinearLayout expandableLayout, final RelativeLayout buttonLayout, final  int i) {
+    private void onClickButton(final LinearLayout expandableLayout, final RelativeLayout buttonLayout, final int i) {
 
         //Simply set View to Gone if not expanded
         //Not necessary but I put simple rotation on button layout
-        if (expandableLayout.getVisibility() == View.VISIBLE){
+        if (expandableLayout.getVisibility() == View.VISIBLE) {
             createRotateAnimator(buttonLayout, 180f, 0f).start();
             expandableLayout.setVisibility(View.GONE);
             expandState.put(i, false);
-        }else{
+        } else {
             createRotateAnimator(buttonLayout, 0f, 180f).start();
             expandableLayout.setVisibility(View.VISIBLE);
             expandState.put(i, true);
