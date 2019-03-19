@@ -55,39 +55,39 @@ public class SignInFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 signInViewModel.validateCredentials(username.getText().toString(), password.getText().toString());
-                //Disabling all buttons and clicks including bottom navigation
-                signInButton.setEnabled(false);
-                ((MainActivity)getActivity()).diableBottomBarButtons();
             }
         });
 
         signInViewModel.getValidCreds().observe(this, new Observer<Boolean>() {
             @Override
             public void onChanged(Boolean aBoolean) {
-                if(aBoolean != null) //Check only if it's not null
+                if (aBoolean != null) { //Check only if it's not null
                     if (aBoolean) {
                         setSignInFlag();
                         goToUserMainPageFragment();
-                        ((MainActivity)getActivity()).enableBottomBarButtons();//Enabling the buttons
                     } else {
-                        //Enabling the buttons
-                        signInButton.setEnabled(false);
-                        ((MainActivity)getActivity()).enableBottomBarButtons();
+
                         //Show invalid credentials dialog
                     }
+                }
             }
         });
         signInViewModel.getProcessing().observe(this, new Observer<Boolean>() {
             @Override
             public void onChanged(Boolean aBoolean) {
-                if(aBoolean != null) //Check only if it's not null
+                if (aBoolean != null) { //Check only if it's not null
                     if (aBoolean) {
                         //Show processing
-                        Toast.makeText(getActivity(), "Loading", Toast.LENGTH_SHORT).show();
+                        ((MainActivity) getActivity()).progressBar.setVisibility(View.VISIBLE); // Stopping the loading
+                        ((MainActivity) getActivity()).diableBottomBarButtons();//Enabling the buttons on bottom bar
+                        signInButton.setEnabled(false);
                     } else {
-                        Toast.makeText(getActivity(), "Done loading", Toast.LENGTH_SHORT).show();
                         //Stop processing
+                        ((MainActivity) getActivity()).progressBar.setVisibility(View.GONE); // Stopping the loading
+                        ((MainActivity) getActivity()).enableBottomBarButtons();//Enabling the buttons on bottom bar
+                        signInButton.setEnabled(true);
                     }
+                }
             }
         });
         return myView;

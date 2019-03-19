@@ -6,6 +6,8 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.util.Log;
+import android.view.View;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.aurelhubert.ahbottomnavigation.AHBottomNavigation;
@@ -28,7 +30,7 @@ public class MainActivity extends AppCompatActivity{
     private static final String TAG = "MainActivity";
     private AHBottomNavigation bottomNavigation;
     private ViewPager mainViewPager;
-
+    public ProgressBar progressBar;
 
     @Override
     public void onBackPressed() {
@@ -77,7 +79,7 @@ public class MainActivity extends AppCompatActivity{
         //Assignments
         bottomNavigation = (AHBottomNavigation) findViewById(R.id.bottom_navigation);
         mainViewPager = (ViewPager) findViewById(R.id.main_viewpager);
-
+        progressBar = (ProgressBar) findViewById(R.id.progressbar);
         //Initializations
         initializeBottomNav();
 
