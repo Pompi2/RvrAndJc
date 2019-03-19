@@ -15,7 +15,6 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-
 import com.hashik.rvrandjc.R;
 import com.hashik.rvrandjc.models.JSONDataModels.Data;
 import com.hashik.rvrandjc.models.JSONDataModels.Semester;

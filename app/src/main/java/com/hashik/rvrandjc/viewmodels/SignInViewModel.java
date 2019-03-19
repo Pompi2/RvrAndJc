@@ -1,11 +1,9 @@
 package com.hashik.rvrandjc.viewmodels;
 
-import android.content.Context;
 import android.util.Log;
 
 import com.hashik.rvrandjc.models.GlobalApplication;
 import com.hashik.rvrandjc.models.JSONDataModels.JSONData;
-import com.hashik.rvrandjc.models.JSONDataModels.UserData;
 import com.hashik.rvrandjc.services.LoginService;
 import com.hashik.rvrandjc.services.ServiceGenerator;
 

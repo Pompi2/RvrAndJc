@@ -1,10 +1,7 @@
 package com.hashik.rvrandjc.models;
 
 import android.app.Application;
-import android.content.SharedPreferences;
-import android.preference.PreferenceManager;
 
-import com.google.gson.Gson;
 import com.hashik.rvrandjc.models.JSONDataModels.JSONData;
 import com.squareup.leakcanary.LeakCanary;
 

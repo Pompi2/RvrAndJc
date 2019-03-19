@@ -1,15 +1,7 @@
 package com.hashik.rvrandjc.views;
 
-import android.content.Context;
 import android.content.SharedPreferences;
-import android.net.Uri;
 import android.os.Bundle;
-
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
-
 import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -18,6 +10,10 @@ import android.view.ViewGroup;
 
 import com.hashik.rvrandjc.R;
 import com.hashik.rvrandjc.models.RootFragmentManager;
+
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 public class RootHomeFragment extends Fragment {
 

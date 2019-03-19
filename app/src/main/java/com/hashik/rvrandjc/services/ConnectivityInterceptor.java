@@ -1,11 +1,6 @@
 package com.hashik.rvrandjc.services;
 
-import android.content.Context;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
-
 import java.io.IOException;
-import java.util.Objects;
 
 import androidx.annotation.NonNull;
 import okhttp3.Interceptor;

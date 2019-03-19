@@ -2,12 +2,6 @@ package com.hashik.rvrandjc.views;
 
 
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,11 +9,15 @@ import android.widget.TextView;
 
 import com.hashik.rvrandjc.R;
 import com.hashik.rvrandjc.adapters.AttendanceReportAdapter;
-import com.hashik.rvrandjc.adapters.SemesterGradesAdapter;
 import com.hashik.rvrandjc.models.GlobalApplication;
 import com.hashik.rvrandjc.models.RootFragmentManager;
 
 import java.util.Arrays;
+
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 
 /**

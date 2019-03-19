@@ -1,15 +1,14 @@
 package com.hashik.rvrandjc.views;
 
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.hashik.rvrandjc.R;
+
+import androidx.fragment.app.Fragment;
 
 public class AboutFragment extends Fragment {
 

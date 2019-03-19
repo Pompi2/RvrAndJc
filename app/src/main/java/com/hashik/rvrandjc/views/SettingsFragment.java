@@ -5,19 +5,18 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.widget.Toast;
 
+import com.hashik.rvrandjc.R;
+import com.hashik.rvrandjc.models.Constants;
+import com.hashik.rvrandjc.models.NotificationSubscriptionManager;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+
 import androidx.preference.ListPreference;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceFragmentCompat;
 import androidx.preference.PreferenceScreen;
 import androidx.preference.SwitchPreference;
-
-import com.hashik.rvrandjc.R;
-import com.hashik.rvrandjc.models.Constants;
-import com.hashik.rvrandjc.models.MyNotificationManager;
-import com.hashik.rvrandjc.models.NotificationSubscriptionManager;
-
-import java.util.ArrayList;
-import java.util.Arrays;
 
 public class SettingsFragment extends PreferenceFragmentCompat {
 

@@ -4,12 +4,10 @@ import com.hashik.rvrandjc.views.AboutFragment;
 import com.hashik.rvrandjc.views.NotificationFragment;
 import com.hashik.rvrandjc.views.RootHomeFragment;
 import com.hashik.rvrandjc.views.SettingsFragment;
-import com.hashik.rvrandjc.views.SignInFragment;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
-import androidx.fragment.app.FragmentStatePagerAdapter;
 
 public class MainFragmentAdapter extends FragmentPagerAdapter {
 
