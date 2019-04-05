@@ -19,6 +19,7 @@ import com.hashik.rvrandjc.adapters.InternalMarksAdapter;
 import com.hashik.rvrandjc.models.GlobalApplication;
 import com.hashik.rvrandjc.models.JSONDataModels.Overview;
 import com.hashik.rvrandjc.models.JSONDataModels.Subjects;
+import com.hashik.rvrandjc.models.MyAnimation;
 import com.hashik.rvrandjc.models.RootFragmentManager;
 
 import java.util.Arrays;
@@ -58,7 +59,8 @@ public class AttendanceReportFragment extends Fragment {
 
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(layoutManager);
-        //fetch data and on ExpandableRecyclerAdapter
+        //Adding animation
+        recyclerView.setLayoutAnimation(MyAnimation.getRecyclerViewAniation());
         recyclerView.setAdapter(adapter);
 
         if (GlobalApplication.getUserData().getTime() != null) {

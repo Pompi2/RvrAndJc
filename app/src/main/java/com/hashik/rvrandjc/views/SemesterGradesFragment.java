@@ -9,6 +9,7 @@ import android.widget.TextView;
 import com.hashik.rvrandjc.R;
 import com.hashik.rvrandjc.adapters.SemesterGradesAdapter;
 import com.hashik.rvrandjc.models.GlobalApplication;
+import com.hashik.rvrandjc.models.MyAnimation;
 import com.hashik.rvrandjc.models.RootFragmentManager;
 
 import java.util.Arrays;
@@ -41,7 +42,8 @@ public class SemesterGradesFragment extends Fragment {
 
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(layoutManager);
-//fetch data and on ExpandableRecyclerAdapter
+        //Adding animation
+        recyclerView.setLayoutAnimation(MyAnimation.getRecyclerViewAniation());
         recyclerView.setAdapter(semesterAdapter);
 
         if(GlobalApplication.getUserData().getTime() != null){

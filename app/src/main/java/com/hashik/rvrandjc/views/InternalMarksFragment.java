@@ -5,11 +5,17 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.AlphaAnimation;
+import android.view.animation.Animation;
+import android.view.animation.AnimationSet;
+import android.view.animation.LayoutAnimationController;
+import android.view.animation.TranslateAnimation;
 import android.widget.TextView;
 
 import com.hashik.rvrandjc.R;
 import com.hashik.rvrandjc.adapters.InternalMarksAdapter;
 import com.hashik.rvrandjc.models.GlobalApplication;
+import com.hashik.rvrandjc.models.MyAnimation;
 import com.hashik.rvrandjc.models.RootFragmentManager;
 
 import java.util.Arrays;
@@ -40,7 +46,9 @@ public class InternalMarksFragment extends Fragment {
 
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(layoutManager);
-        //fetch data and on ExpandableRecyclerAdapter
+        //Adding animation
+        recyclerView.setLayoutAnimation(MyAnimation.getRecyclerViewAniation());
+
         recyclerView.setAdapter(internalMarksAdapter);
         if(GlobalApplication.getUserData().getTime() != null){
             TextView lastupdate = view.findViewById(R.id.lastupdate);//Setting lastupdate
