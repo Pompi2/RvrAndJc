@@ -23,6 +23,8 @@ import java.util.List;
 
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.transition.ChangeBounds;
+import androidx.transition.TransitionManager;
 
 
 public class AttendanceReportAdapter extends RecyclerView.Adapter<AttendanceReportAdapter.ViewHolder> {
@@ -67,7 +69,7 @@ public class AttendanceReportAdapter extends RecyclerView.Adapter<AttendanceRepo
         viewHolder.buttonLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(final View v) {
-                onClickButton(viewHolder.expandableLayout, viewHolder.buttonLayout, i);
+                onClickButton(viewHolder.expandableLayout, viewHolder.buttonLayout, viewHolder.getCompleteCard(), i);
             }
         });
         viewHolder.completeCard.setOnClickListener(new View.OnClickListener() {
@@ -122,6 +124,10 @@ public class AttendanceReportAdapter extends RecyclerView.Adapter<AttendanceRepo
         public LinearLayout expandableLayout;
         public LinearLayout completeCard;
 
+        public LinearLayout getCompleteCard() {
+            return completeCard;
+        }
+
         public ViewHolder(View view) {
             super(view);
             completeCard = (LinearLayout) view.findViewById(R.id.one_card);
@@ -132,16 +138,26 @@ public class AttendanceReportAdapter extends RecyclerView.Adapter<AttendanceRepo
         }
     }
 
-    private void onClickButton(final LinearLayout expandableLayout, final RelativeLayout buttonLayout, final int i) {
+    private void onClickButton(final LinearLayout expandableLayout, final RelativeLayout buttonLayout, LinearLayout completeCard, final int i) {
 
         //Simply set View to Gone if not expanded
         //Not necessary but I put simple rotation on button layout
         if (expandableLayout.getVisibility() == View.VISIBLE) {
             createRotateAnimator(buttonLayout, 180f, 0f).start();
+            //Transition
+            final ChangeBounds transition = new ChangeBounds();
+            transition.setDuration(300); // Sets a duration of 600 milliseconds
+            TransitionManager.beginDelayedTransition(completeCard,transition);
+
             expandableLayout.setVisibility(View.GONE);
             expandState.put(i, false);
         } else {
             createRotateAnimator(buttonLayout, 0f, 180f).start();
+            //Transition
+            final ChangeBounds transition = new ChangeBounds();
+            transition.setDuration(300); // Sets a duration of 600 milliseconds
+            TransitionManager.beginDelayedTransition(completeCard,transition);
+
             expandableLayout.setVisibility(View.VISIBLE);
             expandState.put(i, true);
         }
@@ -150,7 +166,7 @@ public class AttendanceReportAdapter extends RecyclerView.Adapter<AttendanceRepo
     //Code to rotate button
     private ObjectAnimator createRotateAnimator(final View target, final float from, final float to) {
         ObjectAnimator animator = ObjectAnimator.ofFloat(target, "rotation", from, to);
-        animator.setDuration(500);
+        animator.setDuration(300);
         animator.setInterpolator(new LinearInterpolator());
         return animator;
     }
