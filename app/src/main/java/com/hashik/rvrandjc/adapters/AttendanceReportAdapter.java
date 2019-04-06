@@ -50,7 +50,6 @@ public class AttendanceReportAdapter extends RecyclerView.Adapter<AttendanceRepo
 
     @Override
     public void onBindViewHolder(final AttendanceReportAdapter.ViewHolder viewHolder, final int i) {
-        viewHolder.setIsRecyclable(false);
 
         viewHolder.tvName.setText(absentList.get(i).getDate());
 

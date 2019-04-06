@@ -50,8 +50,6 @@ public class SemesterGradesAdapter extends RecyclerView.Adapter<SemesterGradesAd
     @Override
     public void onBindViewHolder(final SemesterGradesAdapter.ViewHolder viewHolder, final int i) {
 
-        viewHolder.setIsRecyclable(false);
-
         viewHolder.tvName.setText(semesters.get(i).getTitle());
 
         //check if view is expanded
