@@ -3,6 +3,8 @@ package com.hashik.rvrandjc.adapters;
 import android.animation.ObjectAnimator;
 import android.content.Context;
 import android.graphics.Typeface;
+import android.transition.ChangeBounds;
+import android.transition.TransitionManager;
 import android.util.SparseBooleanArray;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -23,8 +25,6 @@ import java.util.List;
 
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
-import androidx.transition.ChangeBounds;
-import androidx.transition.TransitionManager;
 
 
 public class AttendanceReportAdapter extends RecyclerView.Adapter<AttendanceReportAdapter.ViewHolder> {

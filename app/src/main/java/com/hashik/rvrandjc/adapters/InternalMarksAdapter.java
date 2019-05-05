@@ -2,7 +2,10 @@ package com.hashik.rvrandjc.adapters;
 
 import android.animation.ObjectAnimator;
 import android.content.Context;
+import android.graphics.Color;
 import android.graphics.Typeface;
+import android.transition.ChangeBounds;
+import android.transition.TransitionManager;
 import android.util.SparseBooleanArray;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -20,9 +23,6 @@ import com.hashik.rvrandjc.models.JSONDataModels.Subjects;
 import java.util.List;
 
 import androidx.recyclerview.widget.RecyclerView;
-import androidx.transition.ChangeBounds;
-import androidx.transition.Transition;
-import androidx.transition.TransitionManager;
 
 
 public class InternalMarksAdapter extends RecyclerView.Adapter<InternalMarksAdapter.ViewHolder> {
@@ -84,7 +84,6 @@ public class InternalMarksAdapter extends RecyclerView.Adapter<InternalMarksAdap
         row.setOrientation(LinearLayout.HORIZONTAL);
         TextView sub = new TextView(context);
         TextView grade = new TextView(context);
-
         sub.setTextSize(15);
         grade.setTextSize(15);
 

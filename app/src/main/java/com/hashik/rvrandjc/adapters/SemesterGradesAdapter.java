@@ -4,6 +4,8 @@ import android.animation.ObjectAnimator;
 import android.content.Context;
 import android.graphics.Color;
 import android.graphics.Typeface;
+import android.transition.ChangeBounds;
+import android.transition.TransitionManager;
 import android.util.SparseBooleanArray;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -22,8 +24,7 @@ import com.hashik.rvrandjc.models.JSONDataModels.Semester;
 import java.util.List;
 
 import androidx.recyclerview.widget.RecyclerView;
-import androidx.transition.ChangeBounds;
-import androidx.transition.TransitionManager;
+
 
 
 public class SemesterGradesAdapter extends RecyclerView.Adapter<SemesterGradesAdapter.ViewHolder> {
