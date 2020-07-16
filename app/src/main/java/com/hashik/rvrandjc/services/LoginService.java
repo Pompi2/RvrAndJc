@@ -6,6 +6,7 @@ import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Headers;
 
+
 public interface LoginService {
     @GET("/Hashik-Donthineni/TemporaryJSONHosting/master/RvrJSON.json")
     @Headers("Content-type: application/json")

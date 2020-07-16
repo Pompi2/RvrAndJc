@@ -3,15 +3,13 @@ package com.hashik.rvrandjc.models;
 import android.app.Application;
 
 import com.hashik.rvrandjc.models.JSONDataModels.JSONData;
-import com.squareup.leakcanary.LeakCanary;
 
 public class GlobalApplication extends Application {
     private static final String BASEURL = "https://raw.githubusercontent.com";
     private static JSONData userData;
 
-
-    public static void setUserData(JSONData userData) {
-        GlobalApplication.userData = userData;
+    public static JSONData getUserData() {
+        return userData;
     }
 
 
@@ -21,23 +19,11 @@ public class GlobalApplication extends Application {
         userData = gson.fromJson(json, JSONData.class);
     }*/
 
-    public static JSONData getUserData() {
-        return userData;
+    public static void setUserData(JSONData userData) {
+        GlobalApplication.userData = userData;
     }
 
-    @Override
-    public void onCreate(){
-        super.onCreate();
-        if (LeakCanary.isInAnalyzerProcess(this)) {
-            // This process is dedicated to LeakCanary for heap analysis.
-            // You should not init your app in this process.
-            return;
-        }
-        LeakCanary.install(this);
-        // Normal app init code...
-    }
-
-    public static String getBaseurl(){
+    public static String getBaseurl() {
         return BASEURL;
     }
 }
